@@ -1,0 +1,259 @@
+[
+  {
+    "title": "Fix login page bug",
+    "created_at": "2024-12-01T10:15:00Z",
+    "updated_at": "2024-12-04T14:20:00Z",
+    "description": "Resolve the issue with user login failure on Safari browser.",
+    "assigned_to": [
+      "alice.smith@example.com",
+      "bob.johnson@example.com",
+      "charlie.brown@example.com"
+    ],
+    "tasks": [
+      { "text": "Investigate the issue", "is_completed": true },
+      { "text": "Fix the bug", "is_completed": false },
+      { "text": "Test on multiple browsers", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "to_do",
+    "order": 1
+  },
+  {
+    "title": "Add dark mode feature",
+    "created_at": "2024-11-28T09:30:00Z",
+    "updated_at": "2024-12-02T12:00:00Z",
+    "description": "Implement dark mode for the entire application.",
+    "assigned_to": [
+      "david.williams@example.com",
+      "eva.davis@example.com",
+      "frank.martinez@example.com"
+    ],
+    "tasks": [
+      { "text": "Design dark mode UI", "is_completed": true },
+      { "text": "Implement styles", "is_completed": false },
+      { "text": "Ensure compatibility with light mode", "is_completed": false },
+      { "text": "QA testing", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "in_progress",
+    "order": 1
+  },
+  {
+    "title": "Optimize database queries",
+    "created_at": "2024-11-20T08:00:00Z",
+    "updated_at": "2024-11-30T10:00:00Z",
+    "description": "Improve the performance of database queries for user data.",
+    "assigned_to": [
+      "alice.smith@example.com",
+      "grace.lee@example.com",
+      "hannah.clark@example.com"
+    ],
+    "tasks": [
+      { "text": "Analyze slow queries", "is_completed": true },
+      { "text": "Rewrite SQL for efficiency", "is_completed": false },
+      { "text": "Benchmark improvements", "is_completed": false },
+      { "text": "Update indexes", "is_completed": true },
+      { "text": "Deploy changes", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "review",
+    "order": 1
+  },
+  {
+    "title": "Create user guide documentation",
+    "created_at": "2024-11-15T11:45:00Z",
+    "updated_at": "2024-12-01T16:20:00Z",
+    "description": "Draft and finalize the user guide documentation for the application.",
+    "assigned_to": [
+      "isaac.moore@example.com",
+      "bob.johnson@example.com",
+      "frank.martinez@example.com"
+    ],
+    "tasks": [
+      { "text": "Outline sections", "is_completed": true },
+      { "text": "Write content for each section", "is_completed": false },
+      { "text": "Review by team", "is_completed": false },
+      { "text": "Incorporate feedback", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "to_do",
+    "order": 2
+  },
+  {
+    "title": "Fix notification delay",
+    "created_at": "2024-12-03T07:50:00Z",
+    "updated_at": "2024-12-04T10:15:00Z",
+    "description": "Resolve the delay in real-time notifications.",
+    "assigned_to": [
+      "alice.smith@example.com",
+      "charlie.brown@example.com",
+      "eva.davis@example.com"
+    ],
+    "tasks": [
+      { "text": "Identify root cause", "is_completed": false },
+      { "text": "Implement fix", "is_completed": false },
+      { "text": "Test real-time functionality", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "in_progress",
+    "order": 2
+  },
+  {
+    "title": "Redesign dashboard layout",
+    "created_at": "2024-11-10T15:00:00Z",
+    "updated_at": "2024-12-02T17:30:00Z",
+    "description": "Improve dashboard layout for better usability.",
+    "assigned_to": [
+      "david.williams@example.com",
+      "hannah.clark@example.com",
+      "frank.martinez@example.com"
+    ],
+    "tasks": [
+      { "text": "Create wireframes", "is_completed": true },
+      { "text": "Get feedback from users", "is_completed": false },
+      { "text": "Implement layout changes", "is_completed": false },
+      { "text": "Perform A/B testing", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "review",
+    "order": 2
+  },
+  {
+    "title": "Add two-factor authentication",
+    "created_at": "2024-11-05T10:00:00Z",
+    "updated_at": "2024-11-25T14:30:00Z",
+    "description": "Enhance security by adding two-factor authentication.",
+    "assigned_to": [
+      "grace.lee@example.com",
+      "isaac.moore@example.com",
+      "bob.johnson@example.com"
+    ],
+    "tasks": [
+      { "text": "Research TFA methods", "is_completed": true },
+      { "text": "Implement TFA backend", "is_completed": false },
+      { "text": "Update UI for TFA", "is_completed": false },
+      { "text": "Test integration", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "done",
+    "order": 1
+  },
+  {
+    "title": "Improve API response time",
+    "created_at": "2024-12-01T09:15:00Z",
+    "updated_at": "2024-12-03T10:45:00Z",
+    "description": "Optimize server response times for API requests.",
+    "assigned_to": [
+      "charlie.brown@example.com",
+      "hannah.clark@example.com",
+      "david.williams@example.com"
+    ],
+    "tasks": [
+      { "text": "Profile API endpoints", "is_completed": true },
+      { "text": "Optimize database queries", "is_completed": false },
+      { "text": "Implement caching", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "in_progress",
+    "order": 3
+  },
+  {
+    "title": "Conduct security audit",
+    "created_at": "2024-11-25T08:00:00Z",
+    "updated_at": "2024-12-03T15:00:00Z",
+    "description": "Perform an audit to identify and fix security vulnerabilities.",
+    "assigned_to": [
+      "alice.smith@example.com",
+      "charlie.brown@example.com",
+      "eva.davis@example.com",
+      "grace.lee@example.com"
+    ],
+    "tasks": [
+      { "text": "Review codebase for vulnerabilities", "is_completed": true },
+      { "text": "Update security patches", "is_completed": false },
+      { "text": "Conduct penetration testing", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "to_do",
+    "order": 3
+  },
+  {
+    "title": "Optimize performance for search feature",
+    "created_at": "2024-11-20T10:30:00Z",
+    "updated_at": "2024-12-01T14:10:00Z",
+    "description": "Enhance the performance of the application's search functionality.",
+    "assigned_to": ["alice.smith@example.com", "david.williams@example.com"],
+    "tasks": [
+      { "text": "Analyze search query execution", "is_completed": true },
+      { "text": "Optimize database index for search", "is_completed": false },
+      { "text": "Test search response times", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "in_progress",
+    "order": 4
+  },
+  {
+    "title": "Add multi-language support",
+    "created_at": "2024-11-22T13:40:00Z",
+    "updated_at": "2024-12-04T09:25:00Z",
+    "description": "Implement localization for different languages in the app.",
+    "assigned_to": [
+      "charlie.brown@example.com",
+      "hannah.clark@example.com",
+      "frank.martinez@example.com",
+      "bob.johnson@example.com"
+    ],
+    "tasks": [
+      { "text": "Set up localization files", "is_completed": true },
+      { "text": "Translate UI text", "is_completed": false },
+      { "text": "Integrate multi-language selector", "is_completed": false },
+      { "text": "Test language switching", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "to_do",
+    "order": 4
+  },
+  {
+    "title": "Integrate payment gateway",
+    "created_at": "2024-11-10T11:20:00Z",
+    "updated_at": "2024-11-28T16:50:00Z",
+    "description": "Add payment processing capability to the app.",
+    "assigned_to": [
+      "isaac.moore@example.com",
+      "grace.lee@example.com",
+      "eva.davis@example.com"
+    ],
+    "tasks": [
+      { "text": "Select payment gateway provider", "is_completed": true },
+      { "text": "Set up payment API integration", "is_completed": false },
+      { "text": "Ensure security compliance", "is_completed": false },
+      { "text": "Test transactions", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "in_progress",
+    "order": 5
+  },
+  {
+    "title": "Implement user feedback form",
+    "created_at": "2024-11-30T16:00:00Z",
+    "updated_at": "2024-12-05T12:15:00Z",
+    "description": "Create and deploy a feedback form for users to provide input.",
+    "assigned_to": [
+      "alice.smith@example.com",
+      "frank.martinez@example.com",
+      "david.williams@example.com",
+      "charlie.brown@example.com",
+      "hannah.clark@example.com"
+    ],
+    "tasks": [
+      { "text": "Design feedback form layout", "is_completed": false },
+      { "text": "Implement form submission logic", "is_completed": false },
+      { "text": "Add form validation", "is_completed": true },
+      { "text": "Integrate with database", "is_completed": false },
+      { "text": "Test form functionality", "is_completed": false }
+    ],
+    "project": "Project Management App",
+    "column": "to_do",
+    "order": 5
+  }
+]
