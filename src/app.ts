@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.config';
 import usersRouter from './routes/users.routes';
 import morgan from 'morgan';
+import issuesRouter from './routes/issues.routes';
 
 dotenv.config();
 
@@ -16,5 +17,6 @@ app.use(cors());
 connectDB();
 
 app.use('/api/users', usersRouter);
+app.use('/api/issues', issuesRouter);
 
 export default app;
