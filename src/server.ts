@@ -4,7 +4,9 @@ import migration from './migrate'; // temporary
 const PORT = process.env.PORT;
 
 // Just for test
-migration();
+(async () => {
+  await migration();
+})();
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
