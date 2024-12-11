@@ -2,7 +2,7 @@ import { Types } from 'mongoose';
 import UserModel, { IUser } from '../models/user.model';
 import generateNewUser from '../utils/generate-new-user.util';
 
-export type addUserDataType = {
+export type AddUserDataType = {
   firstName: string;
   lastName: string;
   email: string;
@@ -33,7 +33,7 @@ class UserService {
     return user;
   }
 
-  static async addUser(userData: addUserDataType): Promise<IUser> {
+  static async addUser(userData: AddUserDataType): Promise<IUser> {
     const fullUserData = generateNewUser(userData);
 
     const newUser = new UserModel(fullUserData);

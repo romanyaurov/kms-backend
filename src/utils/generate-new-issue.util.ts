@@ -1,7 +1,7 @@
 import IssueModel from '../models/issue.model';
-import { addIssueDataType } from '../services/issue.service';
+import { AddIssueDataType } from '../services/issue.service';
 
-const generateNewIssue = async (issueData: addIssueDataType) => {
+const generateNewIssue = async (issueData: AddIssueDataType) => {
   const createdAt = new Date().toISOString();
   const updatedAt = new Date().toISOString();
   const sameColumnIssues = await IssueModel.find({
