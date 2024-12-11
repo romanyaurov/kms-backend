@@ -13,8 +13,5 @@ RUN npm install
 # Выполнить билд
 RUN npm run build
 
-# Выполняем миграцию
-RUN npm run migrate
-
 # Команда запуска
 CMD ["npm", "start"]
