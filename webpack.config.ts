@@ -28,10 +28,6 @@ module.exports = {
           from: path.resolve(__dirname, 'src', 'public'),
           to: path.resolve(__dirname, 'dist', 'public'),
         },
-        {
-          from: path.resolve(__dirname, 'src', 'data'),
-          to: path.resolve(__dirname, 'dist', 'data'),
-        },
       ],
     }),
   ],
