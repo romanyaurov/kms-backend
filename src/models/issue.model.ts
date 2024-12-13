@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document, Types } from 'mongoose';
 
-export interface ITask {
+export interface ITask extends Document {
   text: string;
   isCompleted: boolean;
 }
@@ -12,8 +12,8 @@ export interface IIssue extends Document {
   description: string;
   assignedTo: Types.ObjectId[];
   tasks: ITask[];
-  project: string;
-  column: string;
+  project: Types.ObjectId;
+  column: Types.ObjectId;
   order: number;
 }
 
@@ -30,8 +30,8 @@ const IssueSchema = new Schema<IIssue>(
         isCompleted: { type: Boolean, required: true },
       },
     ],
-    project: { type: String, required: true },
-    column: { type: String, required: true },
+    project: { type: Schema.Types.ObjectId, ref: 'Project', required: true },
+    column: { type: Schema.Types.ObjectId, required: true },
     order: { type: Number, required: true },
   },
   {

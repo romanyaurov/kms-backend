@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Management App",
+    "createdAt": "2024-11-05T10:00:00Z",
+    "updatedAt": "2024-11-05T10:00:00Z",
+    "moderator": "charlie.brown@example.com",
+    "columns": [
+      {
+        "title": "to_do",
+        "order": 1
+      },
+      {
+        "title": "in_progress",
+        "order": 2
+      },
+      {
+        "title": "review",
+        "order": 3
+      },
+      {
+        "title": "done",
+        "order": 4
+      }
+    ]
+  }
+]

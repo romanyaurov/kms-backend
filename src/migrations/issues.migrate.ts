@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import UserModel from '../models/user.model';
 import IssueModel from '../models/issue.model';
+import ProjectModel from '../models/project.model';
 
 type IssueType = {
   title: string;
@@ -17,6 +18,7 @@ type IssueType = {
 
 const issuesMigrate = async () => {
   const users = await UserModel.find();
+  const projects = await ProjectModel.find();
 
   const filePath = path.join(__dirname, '..', 'data', 'issues.json');
   const fileData = await fs.readFile(filePath, 'utf-8');
@@ -32,6 +34,10 @@ const issuesMigrate = async () => {
       (assignedUserEmail: string) =>
         users.find((user) => user.email === assignedUserEmail)?._id
     ),
+    project: projects.find((project) => project.name === issue.project)?._id,
+    column: projects
+      .find((project) => project.name === issue.project)
+      ?.columns.find((column) => column.title === issue.column)?._id,
   }));
 
   await IssueModel.deleteMany({});

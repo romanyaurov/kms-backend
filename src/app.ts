@@ -5,6 +5,7 @@ import connectDB from './config/db.config';
 import usersRouter from './routes/users.routes';
 import morgan from 'morgan';
 import issuesRouter from './routes/issues.routes';
+import projectsRouter from './routes/projects.routes';
 
 dotenv.config();
 
@@ -18,5 +19,6 @@ connectDB();
 
 app.use('/api/users', usersRouter);
 app.use('/api/issues', issuesRouter);
+app.use('/api/projects', projectsRouter);
 
 export default app;
