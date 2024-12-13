@@ -1,0 +1,26 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: self-hosetd
+
+    steps:
+      - name: Stop server service
+        run: |
+          cd ~/kaban-ms
+          docker-compose stop server
+
+      - name: Pull latest changes from master
+        run: |
+          cd ~/kaban-ms/server
+          git pull origin master
+
+      - name: Build and start server service
+        run: |
+          cd ~/kaban-ms
+          docker-compose up -d --build server
