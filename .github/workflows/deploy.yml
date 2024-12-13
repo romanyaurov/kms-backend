@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosetd
+    runs-on: [self-hosted, Linux, X64]
 
     steps:
       - name: Stop server service
