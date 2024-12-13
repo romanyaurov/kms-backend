@@ -3,7 +3,7 @@ import ProjectModel, { IProject } from '../models/project.model';
 import generateNewProject from '../utils/generate-new-project.util';
 
 export type CreateProjectDataType = {
-  title: string;
+  name: string;
   moderator: string;
   columns: string[];
 };

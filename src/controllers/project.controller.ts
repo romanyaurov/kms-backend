@@ -25,9 +25,9 @@ class ProjectController {
 
   static async createProject(req: Request, res: Response) {
     try {
-      const { title, moderator, columns } = req.body;
+      const { name, moderator, columns } = req.body;
       const newProject = await ProjectService.createProject({
-        title,
+        name,
         moderator,
         columns,
       });
