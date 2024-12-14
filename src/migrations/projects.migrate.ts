@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import UserModel from '../models/user.model';
 import ProjectModel from '../models/project.model';
+import { slugify } from 'transliteration';
 
 type ProjectType = {
   name: string;
@@ -25,6 +26,7 @@ const projectsMigrate = async () => {
   const projectsToInsert = rawProjects.map((project) => ({
     ...project,
     moderator: users.find((user) => user.email === project.moderator)?._id,
+    slug: slugify(project.name),
   }));
 
   await ProjectModel.deleteMany({});

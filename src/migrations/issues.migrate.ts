@@ -8,9 +8,15 @@ type IssueType = {
   title: string;
   createdAt: string;
   updatedAt: string;
+  deadline: string;
   description: string;
   assignedTo: string[];
-  tasks: { text: string; isCompleted: boolean }[];
+  tasks: {
+    text: string;
+    isCompleted: boolean;
+    createdAt: string;
+    updatedAt: string;
+  }[];
   project: string;
   column: string;
   order: number;

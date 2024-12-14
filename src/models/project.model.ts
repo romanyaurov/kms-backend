@@ -11,6 +11,7 @@ export interface IProject extends Document {
   updatedAt: Date;
   moderator: Types.ObjectId;
   columns: IColumn[];
+  slug: string;
 }
 
 const ProjectSchema = new Schema<IProject>(
@@ -19,6 +20,7 @@ const ProjectSchema = new Schema<IProject>(
     createdAt: { type: Date, required: true },
     updatedAt: { type: Date, required: true },
     moderator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    slug: { type: String, required: true },
     columns: [
       {
         title: { type: String, required: true },
