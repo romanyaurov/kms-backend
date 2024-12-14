@@ -4,7 +4,8 @@ import IssueService from '../services/issue.service';
 class IssueController {
   static async getAllIssues(req: Request, res: Response) {
     try {
-      const issues = await IssueService.getAllIssues();
+      const { projectId } = req.params;
+      const issues = await IssueService.getAllIssues(projectId);
       res.status(200).json(issues);
     } catch (error) {
       console.log(error);
@@ -14,8 +15,8 @@ class IssueController {
 
   static async getIssue(req: Request, res: Response) {
     try {
-      const { id } = req.params;
-      const issue = await IssueService.getIssue(id);
+      const { issueId } = req.params;
+      const issue = await IssueService.getIssue(issueId);
       res.status(200).json(issue);
     } catch (error) {
       console.log(error);
@@ -44,8 +45,8 @@ class IssueController {
 
   static async deleteIssue(req: Request, res: Response) {
     try {
-      const { id } = req.params;
-      const message = await IssueService.deleteIssue(id);
+      const { issueId } = req.params;
+      const message = await IssueService.deleteIssue(issueId);
       res.status(200).json({ error: false, message });
     } catch (error) {
       console.log(error);
@@ -55,9 +56,9 @@ class IssueController {
 
   static async updateIssue(req: Request, res: Response) {
     try {
-      const { id } = req.params;
+      const { issueId } = req.params;
       const { column, order } = req.body;
-      const message = await IssueService.updateIssue({ id, column, order });
+      const message = await IssueService.updateIssue({ issueId, column, order });
       res.status(200).json({ error: false, message });
     } catch (error) {
       console.log(error);

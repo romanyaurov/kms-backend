@@ -3,6 +3,7 @@
     "title": "Fix login page bug",
     "createdAt": "2024-12-01T10:15:00Z",
     "updatedAt": "2024-12-04T14:20:00Z",
+    "deadline": "2024-12-10T23:59:00Z",
     "description": "Resolve the issue with user login failure on Safari browser.",
     "assignedTo": [
       "alice.smith@example.com",
@@ -10,9 +11,24 @@
       "charlie.brown@example.com"
     ],
     "tasks": [
-      { "text": "Investigate the issue", "isCompleted": true },
-      { "text": "Fix the bug", "isCompleted": false },
-      { "text": "Test on multiple browsers", "isCompleted": false }
+      {
+        "text": "Investigate the issue",
+        "isCompleted": true,
+        "createdAt": "2024-12-01T10:15:00Z",
+        "updatedAt": "2024-12-04T14:20:00Z"
+      },
+      {
+        "text": "Fix the bug",
+        "isCompleted": false,
+        "createdAt": "2024-12-01T10:15:00Z",
+        "updatedAt": "2024-12-01T10:15:00Z"
+      },
+      {
+        "text": "Test on multiple browsers",
+        "isCompleted": false,
+        "createdAt": "2024-12-01T10:15:00Z",
+        "updatedAt": "2024-12-01T10:15:00Z"
+      }
     ],
     "project": "Management App",
     "column": "to_do",
@@ -22,6 +38,7 @@
     "title": "Add dark mode feature",
     "createdAt": "2024-11-28T09:30:00Z",
     "updatedAt": "2024-12-02T12:00:00Z",
+    "deadline": "2024-12-15T23:59:00Z",
     "description": "Implement dark mode for the entire application.",
     "assignedTo": [
       "david.williams@example.com",
@@ -29,10 +46,30 @@
       "frank.martinez@example.com"
     ],
     "tasks": [
-      { "text": "Design dark mode UI", "isCompleted": true },
-      { "text": "Implement styles", "isCompleted": false },
-      { "text": "Ensure compatibility with light mode", "isCompleted": false },
-      { "text": "QA testing", "isCompleted": false }
+      {
+        "text": "Design dark mode UI",
+        "isCompleted": true,
+        "createdAt": "2024-11-28T09:30:00Z",
+        "updatedAt": "2024-12-02T12:00:00Z"
+      },
+      {
+        "text": "Implement styles",
+        "isCompleted": false,
+        "createdAt": "2024-11-28T09:30:00Z",
+        "updatedAt": "2024-11-28T09:30:00Z"
+      },
+      {
+        "text": "Ensure compatibility with light mode",
+        "isCompleted": false,
+        "createdAt": "2024-11-28T09:30:00Z",
+        "updatedAt": "2024-11-28T09:30:00Z"
+      },
+      {
+        "text": "QA testing",
+        "isCompleted": false,
+        "createdAt": "2024-11-28T09:30:00Z",
+        "updatedAt": "2024-11-28T09:30:00Z"
+      }
     ],
     "project": "Management App",
     "column": "in_progress",
@@ -42,6 +79,7 @@
     "title": "Optimize database queries",
     "createdAt": "2024-11-20T08:00:00Z",
     "updatedAt": "2024-11-30T10:00:00Z",
+    "deadline": "2024-12-20T23:59:00Z",
     "description": "Improve the performance of database queries for user data.",
     "assignedTo": [
       "alice.smith@example.com",
@@ -49,11 +87,36 @@
       "hannah.clark@example.com"
     ],
     "tasks": [
-      { "text": "Analyze slow queries", "isCompleted": true },
-      { "text": "Rewrite SQL for efficiency", "isCompleted": false },
-      { "text": "Benchmark improvements", "isCompleted": false },
-      { "text": "Update indexes", "isCompleted": true },
-      { "text": "Deploy changes", "isCompleted": false }
+      {
+        "text": "Analyze slow queries",
+        "isCompleted": true,
+        "createdAt": "2024-11-20T08:00:00Z",
+        "updatedAt": "2024-11-30T10:00:00Z"
+      },
+      {
+        "text": "Rewrite SQL for efficiency",
+        "isCompleted": false,
+        "createdAt": "2024-11-20T08:00:00Z",
+        "updatedAt": "2024-11-20T08:00:00Z"
+      },
+      {
+        "text": "Benchmark improvements",
+        "isCompleted": false,
+        "createdAt": "2024-11-20T08:00:00Z",
+        "updatedAt": "2024-11-20T08:00:00Z"
+      },
+      {
+        "text": "Update indexes",
+        "isCompleted": true,
+        "createdAt": "2024-11-20T08:00:00Z",
+        "updatedAt": "2024-11-30T10:00:00Z"
+      },
+      {
+        "text": "Deploy changes",
+        "isCompleted": false,
+        "createdAt": "2024-11-20T08:00:00Z",
+        "updatedAt": "2024-11-20T08:00:00Z"
+      }
     ],
     "project": "Management App",
     "column": "review",
@@ -63,6 +126,7 @@
     "title": "Create user guide documentation",
     "createdAt": "2024-11-15T11:45:00Z",
     "updatedAt": "2024-12-01T16:20:00Z",
+    "deadline": "2024-12-25T23:59:00Z",
     "description": "Draft and finalize the user guide documentation for the application.",
     "assignedTo": [
       "isaac.moore@example.com",
@@ -70,10 +134,30 @@
       "frank.martinez@example.com"
     ],
     "tasks": [
-      { "text": "Outline sections", "isCompleted": true },
-      { "text": "Write content for each section", "isCompleted": false },
-      { "text": "Review by team", "isCompleted": false },
-      { "text": "Incorporate feedback", "isCompleted": false }
+      {
+        "text": "Outline sections",
+        "isCompleted": true,
+        "createdAt": "2024-11-15T11:45:00Z",
+        "updatedAt": "2024-12-01T16:20:00Z"
+      },
+      {
+        "text": "Write content for each section",
+        "isCompleted": false,
+        "createdAt": "2024-11-15T11:45:00Z",
+        "updatedAt": "2024-11-15T11:45:00Z"
+      },
+      {
+        "text": "Review by team",
+        "isCompleted": false,
+        "createdAt": "2024-11-15T11:45:00Z",
+        "updatedAt": "2024-11-15T11:45:00Z"
+      },
+      {
+        "text": "Incorporate feedback",
+        "isCompleted": false,
+        "createdAt": "2024-11-15T11:45:00Z",
+        "updatedAt": "2024-11-15T11:45:00Z"
+      }
     ],
     "project": "Management App",
     "column": "to_do",
@@ -83,6 +167,7 @@
     "title": "Fix notification delay",
     "createdAt": "2024-12-03T07:50:00Z",
     "updatedAt": "2024-12-04T10:15:00Z",
+    "deadline": "2024-12-30T23:59:00Z",
     "description": "Resolve the delay in real-time notifications.",
     "assignedTo": [
       "alice.smith@example.com",
@@ -90,9 +175,24 @@
       "eva.davis@example.com"
     ],
     "tasks": [
-      { "text": "Identify root cause", "isCompleted": false },
-      { "text": "Implement fix", "isCompleted": false },
-      { "text": "Test real-time functionality", "isCompleted": false }
+      {
+        "text": "Identify root cause",
+        "isCompleted": false,
+        "createdAt": "2024-12-03T07:50:00Z",
+        "updatedAt": "2024-12-03T07:50:00Z"
+      },
+      {
+        "text": "Implement fix",
+        "isCompleted": false,
+        "createdAt": "2024-12-03T07:50:00Z",
+        "updatedAt": "2024-12-03T07:50:00Z"
+      },
+      {
+        "text": "Test real-time functionality",
+        "isCompleted": false,
+        "createdAt": "2024-12-03T07:50:00Z",
+        "updatedAt": "2024-12-03T07:50:00Z"
+      }
     ],
     "project": "Management App",
     "column": "in_progress",
@@ -102,6 +202,7 @@
     "title": "Redesign dashboard layout",
     "createdAt": "2024-11-10T15:00:00Z",
     "updatedAt": "2024-12-02T17:30:00Z",
+    "deadline": "2025-01-05T23:59:00Z",
     "description": "Improve dashboard layout for better usability.",
     "assignedTo": [
       "david.williams@example.com",
@@ -109,10 +210,30 @@
       "frank.martinez@example.com"
     ],
     "tasks": [
-      { "text": "Create wireframes", "isCompleted": true },
-      { "text": "Get feedback from users", "isCompleted": false },
-      { "text": "Implement layout changes", "isCompleted": false },
-      { "text": "Perform A/B testing", "isCompleted": false }
+      {
+        "text": "Create wireframes",
+        "isCompleted": true,
+        "createdAt": "2024-11-10T15:00:00Z",
+        "updatedAt": "2024-12-02T17:30:00Z"
+      },
+      {
+        "text": "Get feedback from users",
+        "isCompleted": false,
+        "createdAt": "2024-11-10T15:00:00Z",
+        "updatedAt": "2024-11-10T15:00:00Z"
+      },
+      {
+        "text": "Implement layout changes",
+        "isCompleted": false,
+        "createdAt": "2024-11-10T15:00:00Z",
+        "updatedAt": "2024-11-10T15:00:00Z"
+      },
+      {
+        "text": "Perform A/B testing",
+        "isCompleted": false,
+        "createdAt": "2024-11-10T15:00:00Z",
+        "updatedAt": "2024-11-10T15:00:00Z"
+      }
     ],
     "project": "Management App",
     "column": "review",
@@ -122,6 +243,7 @@
     "title": "Add two-factor authentication",
     "createdAt": "2024-11-05T10:00:00Z",
     "updatedAt": "2024-11-25T14:30:00Z",
+    "deadline": "2025-01-10T23:59:00Z",
     "description": "Enhance security by adding two-factor authentication.",
     "assignedTo": [
       "grace.lee@example.com",
@@ -129,10 +251,30 @@
       "bob.johnson@example.com"
     ],
     "tasks": [
-      { "text": "Research TFA methods", "isCompleted": true },
-      { "text": "Implement TFA backend", "isCompleted": false },
-      { "text": "Update UI for TFA", "isCompleted": false },
-      { "text": "Test integration", "isCompleted": false }
+      {
+        "text": "Research TFA methods",
+        "isCompleted": true,
+        "createdAt": "2024-11-05T10:00:00Z",
+        "updatedAt": "2024-11-25T14:30:00Z"
+      },
+      {
+        "text": "Implement TFA backend",
+        "isCompleted": false,
+        "createdAt": "2024-11-05T10:00:00Z",
+        "updatedAt": "2024-11-05T10:00:00Z"
+      },
+      {
+        "text": "Update UI for TFA",
+        "isCompleted": false,
+        "createdAt": "2024-11-05T10:00:00Z",
+        "updatedAt": "2024-11-05T10:00:00Z"
+      },
+      {
+        "text": "Test integration",
+        "isCompleted": false,
+        "createdAt": "2024-11-05T10:00:00Z",
+        "updatedAt": "2024-11-05T10:00:00Z"
+      }
     ],
     "project": "Management App",
     "column": "done",
@@ -142,6 +284,7 @@
     "title": "Improve API response time",
     "createdAt": "2024-12-01T09:15:00Z",
     "updatedAt": "2024-12-03T10:45:00Z",
+    "deadline": "2025-01-15T23:59:00Z",
     "description": "Optimize server response times for API requests.",
     "assignedTo": [
       "charlie.brown@example.com",
@@ -149,9 +292,24 @@
       "david.williams@example.com"
     ],
     "tasks": [
-      { "text": "Profile API endpoints", "isCompleted": true },
-      { "text": "Optimize database queries", "isCompleted": false },
-      { "text": "Implement caching", "isCompleted": false }
+      {
+        "text": "Profile API endpoints",
+        "isCompleted": true,
+        "createdAt": "2024-12-01T09:15:00Z",
+        "updatedAt": "2024-12-03T10:45:00Z"
+      },
+      {
+        "text": "Optimize database queries",
+        "isCompleted": false,
+        "createdAt": "2024-12-01T09:15:00Z",
+        "updatedAt": "2024-12-01T09:15:00Z"
+      },
+      {
+        "text": "Implement caching",
+        "isCompleted": false,
+        "createdAt": "2024-12-01T09:15:00Z",
+        "updatedAt": "2024-12-01T09:15:00Z"
+      }
     ],
     "project": "Management App",
     "column": "in_progress",
@@ -161,6 +319,7 @@
     "title": "Conduct security audit",
     "createdAt": "2024-11-25T08:00:00Z",
     "updatedAt": "2024-12-03T15:00:00Z",
+    "deadline": "2025-01-20T23:59:00Z",
     "description": "Perform an audit to identify and fix security vulnerabilities.",
     "assignedTo": [
       "alice.smith@example.com",
@@ -169,9 +328,24 @@
       "grace.lee@example.com"
     ],
     "tasks": [
-      { "text": "Review codebase for vulnerabilities", "isCompleted": true },
-      { "text": "Update security patches", "isCompleted": false },
-      { "text": "Conduct penetration testing", "isCompleted": false }
+      {
+        "text": "Review codebase for vulnerabilities",
+        "isCompleted": true,
+        "createdAt": "2024-11-25T08:00:00Z",
+        "updatedAt": "2024-12-03T15:00:00Z"
+      },
+      {
+        "text": "Update security patches",
+        "isCompleted": false,
+        "createdAt": "2024-11-25T08:00:00Z",
+        "updatedAt": "2024-11-25T08:00:00Z"
+      },
+      {
+        "text": "Conduct penetration testing",
+        "isCompleted": false,
+        "createdAt": "2024-11-25T08:00:00Z",
+        "updatedAt": "2024-11-25T08:00:00Z"
+      }
     ],
     "project": "Management App",
     "column": "to_do",
@@ -181,12 +355,28 @@
     "title": "Optimize performance for search feature",
     "createdAt": "2024-11-20T10:30:00Z",
     "updatedAt": "2024-12-01T14:10:00Z",
+    "deadline": "2025-01-25T23:59:00Z",
     "description": "Enhance the performance of the application's search functionality.",
     "assignedTo": ["alice.smith@example.com", "david.williams@example.com"],
     "tasks": [
-      { "text": "Analyze search query execution", "isCompleted": true },
-      { "text": "Optimize database index for search", "isCompleted": false },
-      { "text": "Test search response times", "isCompleted": false }
+      {
+        "text": "Analyze search query execution",
+        "isCompleted": true,
+        "createdAt": "2024-11-20T10:30:00Z",
+        "updatedAt": "2024-12-01T14:10:00Z"
+      },
+      {
+        "text": "Optimize database index for search",
+        "isCompleted": false,
+        "createdAt": "2024-11-20T10:30:00Z",
+        "updatedAt": "2024-11-20T10:30:00Z"
+      },
+      {
+        "text": "Test search response times",
+        "isCompleted": false,
+        "createdAt": "2024-11-20T10:30:00Z",
+        "updatedAt": "2024-11-20T10:30:00Z"
+      }
     ],
     "project": "Management App",
     "column": "in_progress",
@@ -196,6 +386,7 @@
     "title": "Add multi-language support",
     "createdAt": "2024-11-22T13:40:00Z",
     "updatedAt": "2024-12-04T09:25:00Z",
+    "deadline": "2025-01-30T23:59:00Z",
     "description": "Implement localization for different languages in the app.",
     "assignedTo": [
       "charlie.brown@example.com",
@@ -204,10 +395,30 @@
       "bob.johnson@example.com"
     ],
     "tasks": [
-      { "text": "Set up localization files", "isCompleted": true },
-      { "text": "Translate UI text", "isCompleted": false },
-      { "text": "Integrate multi-language selector", "isCompleted": false },
-      { "text": "Test language switching", "isCompleted": false }
+      {
+        "text": "Set up localization files",
+        "isCompleted": true,
+        "createdAt": "2024-11-22T13:40:00Z",
+        "updatedAt": "2024-12-04T09:25:00Z"
+      },
+      {
+        "text": "Translate UI text",
+        "isCompleted": false,
+        "createdAt": "2024-11-22T13:40:00Z",
+        "updatedAt": "2024-11-22T13:40:00Z"
+      },
+      {
+        "text": "Integrate multi-language selector",
+        "isCompleted": false,
+        "createdAt": "2024-11-22T13:40:00Z",
+        "updatedAt": "2024-11-22T13:40:00Z"
+      },
+      {
+        "text": "Test language switching",
+        "isCompleted": false,
+        "createdAt": "2024-11-22T13:40:00Z",
+        "updatedAt": "2024-11-22T13:40:00Z"
+      }
     ],
     "project": "Management App",
     "column": "to_do",
@@ -217,6 +428,7 @@
     "title": "Integrate payment gateway",
     "createdAt": "2024-11-10T11:20:00Z",
     "updatedAt": "2024-11-28T16:50:00Z",
+    "deadline": "2025-02-05T23:59:00Z",
     "description": "Add payment processing capability to the app.",
     "assignedTo": [
       "isaac.moore@example.com",
@@ -224,10 +436,30 @@
       "eva.davis@example.com"
     ],
     "tasks": [
-      { "text": "Select payment gateway provider", "isCompleted": true },
-      { "text": "Set up payment API integration", "isCompleted": false },
-      { "text": "Ensure security compliance", "isCompleted": false },
-      { "text": "Test transactions", "isCompleted": false }
+      {
+        "text": "Select payment gateway provider",
+        "isCompleted": true,
+        "createdAt": "2024-11-10T11:20:00Z",
+        "updatedAt": "2024-11-28T16:50:00Z"
+      },
+      {
+        "text": "Set up payment API integration",
+        "isCompleted": false,
+        "createdAt": "2024-11-10T11:20:00Z",
+        "updatedAt": "2024-11-10T11:20:00Z"
+      },
+      {
+        "text": "Ensure security compliance",
+        "isCompleted": false,
+        "createdAt": "2024-11-10T11:20:00Z",
+        "updatedAt": "2024-11-10T11:20:00Z"
+      },
+      {
+        "text": "Test transactions",
+        "isCompleted": false,
+        "createdAt": "2024-11-10T11:20:00Z",
+        "updatedAt": "2024-11-10T11:20:00Z"
+      }
     ],
     "project": "Management App",
     "column": "in_progress",
@@ -237,6 +469,7 @@
     "title": "Implement user feedback form",
     "createdAt": "2024-11-30T16:00:00Z",
     "updatedAt": "2024-12-05T12:15:00Z",
+    "deadline": "2025-02-10T23:59:00Z",
     "description": "Create and deploy a feedback form for users to provide input.",
     "assignedTo": [
       "alice.smith@example.com",
@@ -246,14 +479,623 @@
       "hannah.clark@example.com"
     ],
     "tasks": [
-      { "text": "Design feedback form layout", "isCompleted": false },
-      { "text": "Implement form submission logic", "isCompleted": false },
-      { "text": "Add form validation", "isCompleted": true },
-      { "text": "Integrate with database", "isCompleted": false },
-      { "text": "Test form functionality", "isCompleted": false }
+      {
+        "text": "Design feedback form layout",
+        "isCompleted": false,
+        "createdAt": "2024-11-30T16:00:00Z",
+        "updatedAt": "2024-11-10T11:20:00Z"
+      },
+      {
+        "text": "Implement form submission logic",
+        "isCompleted": false,
+        "createdAt": "2024-11-30T16:00:00Z",
+        "updatedAt": "2024-11-10T11:20:00Z"
+      },
+      {
+        "text": "Add form validation",
+        "isCompleted": true,
+        "createdAt": "2024-11-30T16:00:00Z",
+        "updatedAt": "2024-12-05T12:15:00Z"
+      },
+      {
+        "text": "Integrate with database",
+        "isCompleted": false,
+        "createdAt": "2024-11-30T16:00:00Z",
+        "updatedAt": "2024-11-10T11:20:00Z"
+      },
+      {
+        "text": "Test form functionality",
+        "isCompleted": false,
+        "createdAt": "2024-11-30T16:00:00Z",
+        "updatedAt": "2024-11-10T11:20:00Z"
+      }
     ],
     "project": "Management App",
     "column": "to_do",
     "order": 5
+  },
+  {
+    "title": "Design system architecture",
+    "createdAt": "2024-12-16T10:00:00Z",
+    "updatedAt": "2024-12-16T10:00:00Z",
+    "description": "Create the foundational architecture for the project.",
+    "assignedTo": ["liam.anderson@example.com", "mia.walker@example.com"],
+    "tasks": [
+      {
+        "text": "Define system requirements",
+        "isCompleted": false,
+        "createdAt": "2024-12-16T10:00:00Z",
+        "updatedAt": "2024-12-16T10:00:00Z"
+      },
+      {
+        "text": "Draft initial architecture diagram",
+        "isCompleted": false,
+        "createdAt": "2024-12-16T10:00:00Z",
+        "updatedAt": "2024-12-16T10:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "backlog",
+    "order": 1,
+    "deadline": "2024-12-23T23:59:00Z"
+  },
+  {
+    "title": "Set up CI/CD pipeline",
+    "createdAt": "2024-12-16T10:00:00Z",
+    "updatedAt": "2024-12-17T12:00:00Z",
+    "description": "Implement continuous integration and delivery pipeline.",
+    "assignedTo": [
+      "noah.hall@example.com",
+      "sophia.martins@example.com",
+      "nathan.foster@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Choose CI/CD tools",
+        "isCompleted": false,
+        "createdAt": "2024-12-16T10:00:00Z",
+        "updatedAt": "2024-12-16T10:00:00Z"
+      },
+      {
+        "text": "Set up build server",
+        "isCompleted": false,
+        "createdAt": "2024-12-16T10:00:00Z",
+        "updatedAt": "2024-12-16T10:00:00Z"
+      },
+      {
+        "text": "Test pipeline workflow",
+        "isCompleted": false,
+        "createdAt": "2024-12-16T10:00:00Z",
+        "updatedAt": "2024-12-16T10:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "to_do",
+    "order": 1,
+    "deadline": "2024-12-24T23:59:00Z"
+  },
+  {
+    "title": "Develop user authentication",
+    "createdAt": "2024-12-17T09:30:00Z",
+    "updatedAt": "2024-12-18T09:30:00Z",
+    "description": "Implement login and registration functionality.",
+    "assignedTo": [
+      "james.evans@example.com",
+      "olivia.scott@example.com",
+      "amelia.hughes@example.com",
+      "ryan.moore@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Create registration page",
+        "isCompleted": true,
+        "createdAt": "2024-12-17T09:30:00Z",
+        "updatedAt": "2024-12-18T09:30:00Z"
+      },
+      {
+        "text": "Implement login API",
+        "isCompleted": true,
+        "createdAt": "2024-12-17T09:30:00Z",
+        "updatedAt": "2024-12-18T09:30:00Z"
+      },
+      {
+        "text": "Add password encryption",
+        "isCompleted": false,
+        "createdAt": "2024-12-17T09:30:00Z",
+        "updatedAt": "2024-12-17T09:30:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "in_progress",
+    "order": 1,
+    "deadline": "2024-12-25T23:59:00Z"
+  },
+  {
+    "title": "Test user authentication",
+    "createdAt": "2024-12-19T14:00:00Z",
+    "updatedAt": "2024-12-19T14:00:00Z",
+    "description": "Verify user authentication system for bugs.",
+    "assignedTo": [
+      "ethan.morris@example.com",
+      "isabella.parker@example.com",
+      "elena.taylor@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Test login flow",
+        "isCompleted": false,
+        "createdAt": "2024-12-19T14:00:00Z",
+        "updatedAt": "2024-12-19T14:00:00Z"
+      },
+      {
+        "text": "Test registration process",
+        "isCompleted": false,
+        "createdAt": "2024-12-19T14:00:00Z",
+        "updatedAt": "2024-12-19T14:00:00Z"
+      },
+      {
+        "text": "Perform security tests",
+        "isCompleted": false,
+        "createdAt": "2024-12-19T14:00:00Z",
+        "updatedAt": "2024-12-19T14:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "test",
+    "order": 1,
+    "deadline": "2024-12-26T23:59:00Z"
+  },
+  {
+    "title": "Develop user profile page",
+    "createdAt": "2024-12-20T11:00:00Z",
+    "updatedAt": "2024-12-20T11:00:00Z",
+    "description": "Build the user profile page with editable fields.",
+    "assignedTo": ["mia.walker@example.com", "noah.hall@example.com"],
+    "tasks": [
+      {
+        "text": "Create profile page UI",
+        "isCompleted": false,
+        "createdAt": "2024-12-20T11:00:00Z",
+        "updatedAt": "2024-12-20T11:00:00Z"
+      },
+      {
+        "text": "Implement profile update API",
+        "isCompleted": false,
+        "createdAt": "2024-12-20T11:00:00Z",
+        "updatedAt": "2024-12-20T11:00:00Z"
+      },
+      {
+        "text": "Add avatar upload functionality",
+        "isCompleted": false,
+        "createdAt": "2024-12-20T11:00:00Z",
+        "updatedAt": "2024-12-20T11:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "in_progress",
+    "order": 2,
+    "deadline": "2024-12-27T23:59:00Z"
+  },
+  {
+    "title": "Finalize system deployment",
+    "createdAt": "2024-12-19T15:00:00Z",
+    "updatedAt": "2024-12-21T15:00:00Z",
+    "description": "Deploy the final version of the system to production.",
+    "assignedTo": [
+      "sophia.martins@example.com",
+      "james.evans@example.com",
+      "elena.taylor@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Prepare deployment environment",
+        "isCompleted": true,
+        "createdAt": "2024-12-19T15:00:00Z",
+        "updatedAt": "2024-12-21T15:00:00Z"
+      },
+      {
+        "text": "Deploy system to production",
+        "isCompleted": true,
+        "createdAt": "2024-12-19T15:00:00Z",
+        "updatedAt": "2024-12-21T15:00:00Z"
+      },
+      {
+        "text": "Monitor post-deployment",
+        "isCompleted": true,
+        "createdAt": "2024-12-19T15:00:00Z",
+        "updatedAt": "2024-12-21T15:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "done",
+    "order": 1,
+    "deadline": "2024-12-28T23:59:00Z"
+  },
+  {
+    "title": "Optimize database performance",
+    "createdAt": "2024-12-22T08:30:00Z",
+    "updatedAt": "2024-12-22T08:30:00Z",
+    "description": "Improve query performance for database operations.",
+    "assignedTo": [
+      "olivia.scott@example.com",
+      "ethan.morris@example.com",
+      "ryan.moore@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Analyze slow queries",
+        "isCompleted": false,
+        "createdAt": "2024-12-22T08:30:00Z",
+        "updatedAt": "2024-12-22T08:30:00Z"
+      },
+      {
+        "text": "Optimize indexes",
+        "isCompleted": false,
+        "createdAt": "2024-12-22T08:30:00Z",
+        "updatedAt": "2024-12-22T08:30:00Z"
+      },
+      {
+        "text": "Benchmark performance",
+        "isCompleted": false,
+        "createdAt": "2024-12-22T08:30:00Z",
+        "updatedAt": "2024-12-22T08:30:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "backlog",
+    "order": 2,
+    "deadline": "2024-12-29T23:59:00Z"
+  },
+  {
+    "title": "Enhance error logging system",
+    "createdAt": "2024-12-23T13:45:00Z",
+    "updatedAt": "2024-12-23T13:45:00Z",
+    "description": "Improve error logging for better debugging.",
+    "assignedTo": [
+      "liam.anderson@example.com",
+      "isabella.parker@example.com",
+      "amelia.hughes@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Integrate logging library",
+        "isCompleted": false,
+        "createdAt": "2024-12-23T13:45:00Z",
+        "updatedAt": "2024-12-23T13:45:00Z"
+      },
+      {
+        "text": "Implement error categorization",
+        "isCompleted": false,
+        "createdAt": "2024-12-23T13:45:00Z",
+        "updatedAt": "2024-12-23T13:45:00Z"
+      },
+      {
+        "text": "Test log output",
+        "isCompleted": false,
+        "createdAt": "2024-12-23T13:45:00Z",
+        "updatedAt": "2024-12-23T13:45:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "to_do",
+    "order": 2,
+    "deadline": "2024-12-30T23:59:00Z"
+  },
+
+  {
+    "title": "Develop admin dashboard",
+    "createdAt": "2024-12-24T09:00:00Z",
+    "updatedAt": "2024-12-24T09:00:00Z",
+    "description": "Create an admin dashboard for managing the system.",
+    "assignedTo": [
+      "noah.hall@example.com",
+      "olivia.scott@example.com",
+      "nathan.foster@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Design dashboard layout",
+        "isCompleted": false,
+        "createdAt": "2024-12-24T09:00:00Z",
+        "updatedAt": "2024-12-24T09:00:00Z"
+      },
+      {
+        "text": "Implement admin panel API",
+        "isCompleted": false,
+        "createdAt": "2024-12-24T09:00:00Z",
+        "updatedAt": "2024-12-24T09:00:00Z"
+      },
+      {
+        "text": "Add user management features",
+        "isCompleted": false,
+        "createdAt": "2024-12-24T09:00:00Z",
+        "updatedAt": "2024-12-24T09:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "to_do",
+    "order": 3,
+    "deadline": "2025-01-02T23:59:00Z"
+  },
+  {
+    "title": "Integrate third-party analytics",
+    "createdAt": "2024-12-25T14:00:00Z",
+    "updatedAt": "2024-12-25T14:00:00Z",
+    "description": "Add third-party analytics service for usage tracking.",
+    "assignedTo": [
+      "james.evans@example.com",
+      "isabella.parker@example.com",
+      "nathan.foster@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Choose analytics provider",
+        "isCompleted": false,
+        "createdAt": "2024-12-25T14:00:00Z",
+        "updatedAt": "2024-12-25T14:00:00Z"
+      },
+      {
+        "text": "Implement data collection scripts",
+        "isCompleted": false,
+        "createdAt": "2024-12-25T14:00:00Z",
+        "updatedAt": "2024-12-25T14:00:00Z"
+      },
+      {
+        "text": "Validate tracking metrics",
+        "isCompleted": false,
+        "createdAt": "2024-12-25T14:00:00Z",
+        "updatedAt": "2024-12-25T14:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "backlog",
+    "order": 3,
+    "deadline": "2025-01-03T23:59:00Z"
+  },
+  {
+    "title": "Implement role-based access control",
+    "createdAt": "2024-12-26T11:00:00Z",
+    "updatedAt": "2024-12-26T11:00:00Z",
+    "description": "Set up role-based access control for different user types.",
+    "assignedTo": [
+      "liam.anderson@example.com",
+      "ethan.morris@example.com",
+      "amelia.hughes@example.com",
+      "nathan.foster@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Define user roles",
+        "isCompleted": false,
+        "createdAt": "2024-12-26T11:00:00Z",
+        "updatedAt": "2024-12-26T11:00:00Z"
+      },
+      {
+        "text": "Implement RBAC middleware",
+        "isCompleted": false,
+        "createdAt": "2024-12-26T11:00:00Z",
+        "updatedAt": "2024-12-26T11:00:00Z"
+      },
+      {
+        "text": "Test role-based restrictions",
+        "isCompleted": false,
+        "createdAt": "2024-12-26T11:00:00Z",
+        "updatedAt": "2024-12-26T11:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "in_progress",
+    "order": 3,
+    "deadline": "2025-01-04T23:59:00Z"
+  },
+  {
+    "title": "Conduct performance testing",
+    "createdAt": "2024-12-27T13:30:00Z",
+    "updatedAt": "2024-12-27T13:30:00Z",
+    "description": "Run performance tests to ensure scalability.",
+    "assignedTo": [
+      "mia.walker@example.com",
+      "sophia.martins@example.com",
+      "elena.taylor@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Prepare test cases",
+        "isCompleted": false,
+        "createdAt": "2024-12-27T13:30:00Z",
+        "updatedAt": "2024-12-27T13:30:00Z"
+      },
+      {
+        "text": "Execute load tests",
+        "isCompleted": false,
+        "createdAt": "2024-12-27T13:30:00Z",
+        "updatedAt": "2024-12-27T13:30:00Z"
+      },
+      {
+        "text": "Analyze performance metrics",
+        "isCompleted": false,
+        "createdAt": "2024-12-27T13:30:00Z",
+        "updatedAt": "2024-12-27T13:30:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "test",
+    "order": 2,
+    "deadline": "2025-01-05T23:59:00Z"
+  },
+  {
+    "title": "Document API endpoints",
+    "createdAt": "2024-12-28T10:45:00Z",
+    "updatedAt": "2024-12-28T10:45:00Z",
+    "description": "Write documentation for all API endpoints.",
+    "assignedTo": [
+      "olivia.scott@example.com",
+      "ethan.morris@example.com",
+      "ryan.moore@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "List all available APIs",
+        "isCompleted": true,
+        "createdAt": "2024-12-28T10:45:00Z",
+        "updatedAt": "2024-12-28T10:45:00Z"
+      },
+      {
+        "text": "Write usage examples",
+        "isCompleted": true,
+        "createdAt": "2024-12-28T10:45:00Z",
+        "updatedAt": "2024-12-28T10:45:00Z"
+      },
+      {
+        "text": "Publish documentation online",
+        "isCompleted": true,
+        "createdAt": "2024-12-28T10:45:00Z",
+        "updatedAt": "2024-12-28T10:45:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "done",
+    "order": 2,
+    "deadline": "2025-01-06T23:59:00Z"
+  },
+  {
+    "title": "Add password recovery feature",
+    "createdAt": "2024-12-29T12:15:00Z",
+    "updatedAt": "2024-12-29T12:15:00Z",
+    "description": "Implement password recovery functionality for users.",
+    "assignedTo": [
+      "noah.hall@example.com",
+      "isabella.parker@example.com",
+      "elena.taylor@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Design password recovery flow",
+        "isCompleted": false,
+        "createdAt": "2024-12-29T12:15:00Z",
+        "updatedAt": "2024-12-29T12:15:00Z"
+      },
+      {
+        "text": "Implement recovery email system",
+        "isCompleted": false,
+        "createdAt": "2024-12-29T12:15:00Z",
+        "updatedAt": "2024-12-29T12:15:00Z"
+      },
+      {
+        "text": "Test recovery functionality",
+        "isCompleted": false,
+        "createdAt": "2024-12-29T12:15:00Z",
+        "updatedAt": "2024-12-29T12:15:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "backlog",
+    "order": 4,
+    "deadline": "2025-01-07T23:59:00Z"
+  },
+  {
+    "title": "Improve search functionality",
+    "createdAt": "2024-12-30T09:00:00Z",
+    "updatedAt": "2024-12-30T09:00:00Z",
+    "description": "Enhance search feature with advanced filters.",
+    "assignedTo": [
+      "liam.anderson@example.com",
+      "sophia.martins@example.com",
+      "ryan.moore@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Add filtering by date",
+        "isCompleted": false,
+        "createdAt": "2024-12-30T09:00:00Z",
+        "updatedAt": "2024-12-30T09:00:00Z"
+      },
+      {
+        "text": "Implement keyword suggestions",
+        "isCompleted": false,
+        "createdAt": "2024-12-30T09:00:00Z",
+        "updatedAt": "2024-12-30T09:00:00Z"
+      },
+      {
+        "text": "Optimize search query performance",
+        "isCompleted": false,
+        "createdAt": "2024-12-30T09:00:00Z",
+        "updatedAt": "2024-12-30T09:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "to_do",
+    "order": 4,
+    "deadline": "2025-01-08T23:59:00Z"
+  },
+  {
+    "title": "Set up staging environment",
+    "createdAt": "2024-12-31T16:00:00Z",
+    "updatedAt": "2024-12-31T16:00:00Z",
+    "description": "Prepare a staging environment for testing new releases.",
+    "assignedTo": [
+      "mia.walker@example.com",
+      "james.evans@example.com",
+      "amelia.hughes@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Set up staging server",
+        "isCompleted": true,
+        "createdAt": "2024-12-31T16:00:00Z",
+        "updatedAt": "2024-12-31T16:00:00Z"
+      },
+      {
+        "text": "Deploy current version to staging",
+        "isCompleted": false,
+        "createdAt": "2024-12-31T16:00:00Z",
+        "updatedAt": "2024-12-31T16:00:00Z"
+      },
+      {
+        "text": "Verify staging environment functionality",
+        "isCompleted": false,
+        "createdAt": "2024-12-31T16:00:00Z",
+        "updatedAt": "2024-12-31T16:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "in_progress",
+    "order": 4,
+    "deadline": "2025-01-09T23:59:00Z"
+  },
+  {
+    "title": "Add multi-factor authentication",
+    "createdAt": "2025-01-01T14:00:00Z",
+    "updatedAt": "2025-01-01T14:00:00Z",
+    "description": "Implement multi-factor authentication for secure logins.",
+    "assignedTo": [
+      "ethan.morris@example.com",
+      "isabella.parker@example.com",
+      "nathan.foster@example.com"
+    ],
+    "tasks": [
+      {
+        "text": "Integrate MFA provider",
+        "isCompleted": true,
+        "createdAt": "2025-01-01T14:00:00Z",
+        "updatedAt": "2025-01-01T14:00:00Z"
+      },
+      {
+        "text": "Implement authentication flow",
+        "isCompleted": false,
+        "createdAt": "2025-01-01T14:00:00Z",
+        "updatedAt": "2025-01-01T14:00:00Z"
+      },
+      {
+        "text": "Test MFA across devices",
+        "isCompleted": false,
+        "createdAt": "2025-01-01T14:00:00Z",
+        "updatedAt": "2025-01-01T14:00:00Z"
+      }
+    ],
+    "project": "New Project",
+    "column": "test",
+    "order": 3,
+    "deadline": "2025-01-10T23:59:00Z"
   }
 ]

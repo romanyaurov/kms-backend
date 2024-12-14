@@ -22,5 +22,33 @@
         "order": 4
       }
     ]
+  },
+  {
+    "name": "New Project",
+    "createdAt": "2024-12-16T10:00:00Z",
+    "updatedAt": "2024-12-16T10:00:00Z",
+    "moderator": "liam.anderson@example.com",
+    "columns": [
+      {
+        "title": "backlog",
+        "order": 1
+      },
+      {
+        "title": "to_do",
+        "order": 2
+      },
+      {
+        "title": "in_progress",
+        "order": 3
+      },
+      {
+        "title": "test",
+        "order": 4
+      },
+      {
+        "title": "done",
+        "order": 5
+      }
+    ]
   }
 ]

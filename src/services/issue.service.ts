@@ -13,14 +13,18 @@ export type AddIssueDataType = {
 };
 
 export type UpdateIssueDataType = {
-  id: string;
+  issueId: string;
   column: Types.ObjectId;
   order: number;
 };
 
 class IssueService {
-  static async getAllIssues(): Promise<IIssue[]> {
-    const issues = await IssueModel.find();
+  static async getAllIssues(projectId: string): Promise<IIssue[]> {
+    if (!Types.ObjectId.isValid(projectId)) {
+      throw new Error('Invalid project ID format');
+    }
+
+    const issues = await IssueModel.find({ project: projectId });
 
     if (!issues) throw new Error('Error fetching issues');
 
@@ -63,7 +67,7 @@ class IssueService {
   }
 
   static async updateIssue(issueData: UpdateIssueDataType): Promise<string> {
-    if (!Types.ObjectId.isValid(issueData.id)) {
+    if (!Types.ObjectId.isValid(issueData.issueId)) {
       throw new Error('Invalid user ID format');
     }
 
@@ -71,7 +75,7 @@ class IssueService {
       throw new Error('Invalid colmn ID format');
     }
 
-    const currIssue = await IssueModel.findById(issueData.id);
+    const currIssue = await IssueModel.findById(issueData.issueId);
     if (!currIssue) throw new Error('Issue not found');
 
     const allIssues = await IssueModel.find({

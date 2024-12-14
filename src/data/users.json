@@ -93,5 +93,125 @@
     ],
     "createdAt": "2024-07-12T09:50:00Z",
     "updatedAt": "2024-12-05T10:30:00Z"
-  }
+  },
+  {
+    "firstName": "Liam",
+    "lastName": "Anderson",
+    "email": "liam.anderson@example.com",
+    "post": "Product Owner",
+    "avatar": "liam_anderson.jpg",
+    "skills": ["Product Management", "Scrum", "Business Analysis"],
+    "createdAt": "2024-12-15T08:00:00Z",
+    "updatedAt": "2024-12-15T08:00:00Z"
+  },
+  {
+    "firstName": "Mia",
+    "lastName": "Walker",
+    "email": "mia.walker@example.com",
+    "post": "Frontend Developer",
+    "avatar": "mia_walker.jpg",
+    "skills": ["Vue.js", "HTML", "CSS", "JavaScript"],
+    "createdAt": "2024-12-16T08:00:00Z",
+    "updatedAt": "2024-12-16T08:00:00Z"
+  },
+  {
+    "firstName": "Noah",
+    "lastName": "Hall",
+    "email": "noah.hall@example.com",
+    "post": "Backend Developer",
+    "avatar": "noah_hall.jpg",
+    "skills": ["Python", "Django", "PostgreSQL", "APIs"],
+    "createdAt": "2024-12-17T08:00:00Z",
+    "updatedAt": "2024-12-17T08:00:00Z"
+  },
+  {
+    "firstName": "Sophia",
+    "lastName": "Martins",
+    "email": "sophia.martins@example.com",
+    "post": "QA Engineer",
+    "avatar": "sophia_martins.jpg",
+    "skills": ["Manual Testing", "Automation", "JIRA"],
+    "createdAt": "2024-12-18T08:00:00Z",
+    "updatedAt": "2024-12-18T08:00:00Z"
+  },
+  {
+    "firstName": "James",
+    "lastName": "Evans",
+    "email": "james.evans@example.com",
+    "post": "DevOps Engineer",
+    "avatar": "james_evans.jpg",
+    "skills": ["CI/CD", "AWS", "Terraform", "Kubernetes"],
+    "createdAt": "2024-12-19T08:00:00Z",
+    "updatedAt": "2024-12-19T08:00:00Z"
+  },
+  {
+    "firstName": "Olivia",
+    "lastName": "Scott",
+    "email": "olivia.scott@example.com",
+    "post": "UI/UX Designer",
+    "avatar": "olivia_scott.jpg",
+    "skills": ["Figma", "Adobe XD", "Prototyping", "Wireframing"],
+    "createdAt": "2024-12-20T08:00:00Z",
+    "updatedAt": "2024-12-20T08:00:00Z"
+  },
+  {
+    "firstName": "Ethan",
+    "lastName": "Morris",
+    "email": "ethan.morris@example.com",
+    "post": "Data Engineer",
+    "avatar": "ethan_morris.jpg",
+    "skills": ["ETL", "Big Data", "SQL", "Apache Spark"],
+    "createdAt": "2024-12-21T08:00:00Z",
+    "updatedAt": "2024-12-21T08:00:00Z"
+  },
+  {
+    "firstName": "Isabella",
+    "lastName": "Parker",
+    "email": "isabella.parker@example.com",
+    "post": "Scrum Master",
+    "avatar": "isabella_parker.jpg",
+    "skills": ["Scrum", "Agile", "Facilitation", "Team Leadership"],
+    "createdAt": "2024-12-22T08:00:00Z",
+    "updatedAt": "2024-12-22T08:00:00Z"
+  },
+  {
+    "firstName": "Elena",
+    "lastName": "Taylor",
+    "email": "elena.taylor@example.com",
+    "post": "Data Scientist",
+    "avatar": "elena_taylor.jpg",
+    "skills": ["Machine Learning", "Python", "Data Visualization", "SQL"],
+    "createdAt": "2024-12-23T08:00:00Z",
+    "updatedAt": "2024-12-23T08:00:00Z"
+  },
+  {
+    "firstName": "Ryan",
+    "lastName": "Moore",
+    "email": "ryan.moore@example.com",
+    "post": "Cloud Architect",
+    "avatar": "ryan_moore.jpg",
+    "skills": ["Cloud Computing", "AWS", "Azure", "Docker"],
+    "createdAt": "2024-12-24T08:00:00Z",
+    "updatedAt": "2024-12-24T08:00:00Z"
+  },
+  {
+    "firstName": "Amelia",
+    "lastName": "Hughes",
+    "email": "amelia.hughes@example.com",
+    "post": "Mobile Developer",
+    "avatar": "amelia_hughes.jpg",
+    "skills": ["Flutter", "Kotlin", "Swift", "UI Design"],
+    "createdAt": "2024-12-25T08:00:00Z",
+    "updatedAt": "2024-12-25T08:00:00Z"
+  },
+  {
+    "firstName": "Nathan",
+    "lastName": "Foster",
+    "email": "nathan.foster@example.com",
+    "post": "Tech Lead",
+    "avatar": "nathan_foster.jpg",
+    "skills": ["Leadership", "System Design", "Code Reviews", "Agile"],
+    "createdAt": "2024-12-26T08:00:00Z",
+    "updatedAt": "2024-12-26T08:00:00Z"
+  }  
 ]
