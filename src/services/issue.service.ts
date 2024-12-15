@@ -79,6 +79,7 @@ class IssueService {
     if (!currIssue) throw new Error('Issue not found');
 
     const allIssues = await IssueModel.find({
+      _id: { $ne: currIssue._id },
       project: currIssue.project,
       column: { $in: [currIssue.column, issueData.column] },
     });

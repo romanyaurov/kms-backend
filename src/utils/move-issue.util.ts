@@ -9,27 +9,26 @@ const moveIssue = (
 ): IIssue[] => {
   const oldColumn = issueObj.column;
 
-  const updatedIssueObj = {
-    ...issueObj,
-    column: targetColumn,
-    order: targetOrder,
-  };
+  issueObj.column = targetColumn;
+  issueObj.order = targetOrder;
 
-  if (!oldColumn.equals(targetColumn)) {
-    issuesArr
-      .filter((issue) => issue.column.equals(oldColumn))
-      .sort((a, b) => a.order - b.order)
-      .forEach((issue, index) => (issue.order = index + 1));
+  let oldColIssues: IIssue[] = [];
+  if (!(oldColumn as Types.ObjectId).equals(targetColumn as Types.ObjectId)) {
+    oldColIssues = issuesArr.filter((issue) =>
+      (issue.column as Types.ObjectId).equals(oldColumn as Types.ObjectId)
+    );
+    oldColIssues.sort((a, b) => a.order - b.order);
+    oldColIssues.forEach((issue, index) => (issue.order = index + 1));
   }
 
-  const newColIssues = issuesArr.filter(
-    (issue) => issue.column === targetColumn
+  const newColIssues = issuesArr.filter((issue) =>
+    (issue.column as Types.ObjectId).equals(targetColumn as Types.ObjectId)
   );
-  newColIssues.sort((a, b) => a.order - b.order);
+
   newColIssues.splice(targetOrder - 1, 0, issueObj);
   newColIssues.forEach((issue, index) => (issue.order = index + 1));
 
-  return issuesArr;
+  return [...oldColIssues, ...newColIssues];
 };
 
 export default moveIssue;
