@@ -9,6 +9,7 @@ type ProjectType = {
   createdAt: string;
   updatedAt: string;
   moderator: string;
+  participants: string[];
   columns: { title: string; order: number }[];
 };
 
@@ -25,6 +26,9 @@ const projectsMigrate = async () => {
 
   const projectsToInsert = rawProjects.map((project) => ({
     ...project,
+    participants: project.participants.map(
+      (participant) => users.find((user) => user.email === participant)?._id
+    ),
     moderator: users.find((user) => user.email === project.moderator)?._id,
     slug: slugify(project.name),
   }));

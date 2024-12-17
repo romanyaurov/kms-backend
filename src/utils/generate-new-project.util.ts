@@ -7,8 +7,6 @@ const generateNewProject = (projectData: CreateProjectDataType) => {
       title: column,
       order: index + 1,
     })),
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
   };
 };
 

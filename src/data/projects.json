@@ -4,6 +4,17 @@
     "createdAt": "2024-11-05T10:00:00Z",
     "updatedAt": "2024-11-05T10:00:00Z",
     "moderator": "charlie.brown@example.com",
+    "participants": [
+      "charlie.brown@example.com",
+      "david.williams@example.com",
+      "eva.davis@example.com",
+      "frank.martinez@example.com",
+      "alice.smith@example.com",
+      "grace.lee@example.com",
+      "hannah.clark@example.com",
+      "isaac.moore@example.com",
+      "bob.johnson@example.com"
+    ],
     "columns": [
       {
         "title": "to_do",
@@ -28,6 +39,21 @@
     "createdAt": "2024-12-16T10:00:00Z",
     "updatedAt": "2024-12-16T10:00:00Z",
     "moderator": "liam.anderson@example.com",
+    "participants": [
+      "charlie.brown@example.com",
+      "liam.anderson@example.com",
+      "mia.walker@example.com",
+      "noah.hall@example.com",
+      "sophia.martins@example.com",
+      "nathan.foster@example.com",
+      "james.evans@example.com",
+      "olivia.scott@example.com",
+      "amelia.hughes@example.com",
+      "ryan.moore@example.com",
+      "elena.taylor@example.com",
+      "ethan.morris@example.com",
+      "isabella.parker@example.com"
+    ],
     "columns": [
       {
         "title": "backlog",

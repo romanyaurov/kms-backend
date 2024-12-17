@@ -7,9 +7,10 @@ export interface IColumn extends Document {
 
 export interface IProject extends Document {
   name: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
   moderator: Types.ObjectId;
+  participants: Types.ObjectId[];
   columns: IColumn[];
   slug: string;
 }
@@ -17,9 +18,10 @@ export interface IProject extends Document {
 const ProjectSchema = new Schema<IProject>(
   {
     name: { type: String, required: true },
-    createdAt: { type: Date, required: true },
-    updatedAt: { type: Date, required: true },
+    createdAt: { type: String, required: true },
+    updatedAt: { type: String, required: true },
     moderator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    participants: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }],
     slug: { type: String, required: true },
     columns: [
       {
@@ -32,6 +34,15 @@ const ProjectSchema = new Schema<IProject>(
     versionKey: false,
   }
 );
+
+ProjectSchema.pre<IProject>('save', function (next) {
+  if (this.isNew) {
+    this.createdAt = new Date().toISOString();
+  }
+  this.updatedAt = new Date().toISOString();
+
+  next();
+})
 
 const ProjectModel = mongoose.model<IProject>('Project', ProjectSchema);
 

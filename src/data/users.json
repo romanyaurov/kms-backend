@@ -7,7 +7,8 @@
     "avatar": "alice_smith.jpg",
     "skills": ["Angular", "HTML", "CSS", "JavaScript"],
     "createdAt": "2024-01-15T08:30:00Z",
-    "updatedAt": "2024-12-05T11:45:00Z"
+    "updatedAt": "2024-12-05T11:45:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Bob",
@@ -17,7 +18,8 @@
     "avatar": "bob_johnson.jpg",
     "skills": ["Node.js", "Express", "MongoDB", "TypeScript"],
     "createdAt": "2023-11-05T10:15:00Z",
-    "updatedAt": "2024-12-05T09:30:00Z"
+    "updatedAt": "2024-12-05T09:30:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Charlie",
@@ -27,7 +29,8 @@
     "avatar": "charlie_brown.jpg",
     "skills": ["Project Management", "Agile", "Scrum", "Communication"],
     "createdAt": "2023-10-20T14:00:00Z",
-    "updatedAt": "2024-12-05T12:15:00Z"
+    "updatedAt": "2024-12-05T12:15:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "David",
@@ -37,7 +40,8 @@
     "avatar": "david_williams.jpg",
     "skills": ["Figma", "Photoshop", "Sketch", "Prototyping"],
     "createdAt": "2024-02-10T09:20:00Z",
-    "updatedAt": "2024-12-05T10:40:00Z"
+    "updatedAt": "2024-12-05T10:40:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Eva",
@@ -47,7 +51,8 @@
     "avatar": "eva_davis.jpg",
     "skills": ["Testing", "Automation", "Selenium", "Bug Reporting"],
     "createdAt": "2024-03-05T16:45:00Z",
-    "updatedAt": "2024-12-05T13:05:00Z"
+    "updatedAt": "2024-12-05T13:05:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Frank",
@@ -57,7 +62,8 @@
     "avatar": "frank_martinez.jpg",
     "skills": ["Docker", "Kubernetes", "CI/CD", "Linux"],
     "createdAt": "2024-04-01T10:00:00Z",
-    "updatedAt": "2024-12-05T14:15:00Z"
+    "updatedAt": "2024-12-05T14:15:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Grace",
@@ -67,7 +73,8 @@
     "avatar": "grace_lee.jpg",
     "skills": ["Python", "Machine Learning", "Data Analysis", "SQL"],
     "createdAt": "2024-06-18T15:35:00Z",
-    "updatedAt": "2024-12-05T14:50:00Z"
+    "updatedAt": "2024-12-05T14:50:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Hannah",
@@ -77,7 +84,8 @@
     "avatar": "hannah_clark.jpg",
     "skills": ["React", "Node.js", "MongoDB", "JavaScript"],
     "createdAt": "2024-08-22T11:15:00Z",
-    "updatedAt": "2024-12-05T12:40:00Z"
+    "updatedAt": "2024-12-05T12:40:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Isaac",
@@ -92,7 +100,8 @@
       "Compliance"
     ],
     "createdAt": "2024-07-12T09:50:00Z",
-    "updatedAt": "2024-12-05T10:30:00Z"
+    "updatedAt": "2024-12-05T10:30:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Liam",
@@ -102,7 +111,8 @@
     "avatar": "liam_anderson.jpg",
     "skills": ["Product Management", "Scrum", "Business Analysis"],
     "createdAt": "2024-12-15T08:00:00Z",
-    "updatedAt": "2024-12-15T08:00:00Z"
+    "updatedAt": "2024-12-15T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Mia",
@@ -112,7 +122,8 @@
     "avatar": "mia_walker.jpg",
     "skills": ["Vue.js", "HTML", "CSS", "JavaScript"],
     "createdAt": "2024-12-16T08:00:00Z",
-    "updatedAt": "2024-12-16T08:00:00Z"
+    "updatedAt": "2024-12-16T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Noah",
@@ -122,7 +133,8 @@
     "avatar": "noah_hall.jpg",
     "skills": ["Python", "Django", "PostgreSQL", "APIs"],
     "createdAt": "2024-12-17T08:00:00Z",
-    "updatedAt": "2024-12-17T08:00:00Z"
+    "updatedAt": "2024-12-17T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Sophia",
@@ -132,7 +144,8 @@
     "avatar": "sophia_martins.jpg",
     "skills": ["Manual Testing", "Automation", "JIRA"],
     "createdAt": "2024-12-18T08:00:00Z",
-    "updatedAt": "2024-12-18T08:00:00Z"
+    "updatedAt": "2024-12-18T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "James",
@@ -142,7 +155,8 @@
     "avatar": "james_evans.jpg",
     "skills": ["CI/CD", "AWS", "Terraform", "Kubernetes"],
     "createdAt": "2024-12-19T08:00:00Z",
-    "updatedAt": "2024-12-19T08:00:00Z"
+    "updatedAt": "2024-12-19T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Olivia",
@@ -152,7 +166,8 @@
     "avatar": "olivia_scott.jpg",
     "skills": ["Figma", "Adobe XD", "Prototyping", "Wireframing"],
     "createdAt": "2024-12-20T08:00:00Z",
-    "updatedAt": "2024-12-20T08:00:00Z"
+    "updatedAt": "2024-12-20T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Ethan",
@@ -162,7 +177,8 @@
     "avatar": "ethan_morris.jpg",
     "skills": ["ETL", "Big Data", "SQL", "Apache Spark"],
     "createdAt": "2024-12-21T08:00:00Z",
-    "updatedAt": "2024-12-21T08:00:00Z"
+    "updatedAt": "2024-12-21T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Isabella",
@@ -172,7 +188,8 @@
     "avatar": "isabella_parker.jpg",
     "skills": ["Scrum", "Agile", "Facilitation", "Team Leadership"],
     "createdAt": "2024-12-22T08:00:00Z",
-    "updatedAt": "2024-12-22T08:00:00Z"
+    "updatedAt": "2024-12-22T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Elena",
@@ -182,7 +199,8 @@
     "avatar": "elena_taylor.jpg",
     "skills": ["Machine Learning", "Python", "Data Visualization", "SQL"],
     "createdAt": "2024-12-23T08:00:00Z",
-    "updatedAt": "2024-12-23T08:00:00Z"
+    "updatedAt": "2024-12-23T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Ryan",
@@ -192,7 +210,8 @@
     "avatar": "ryan_moore.jpg",
     "skills": ["Cloud Computing", "AWS", "Azure", "Docker"],
     "createdAt": "2024-12-24T08:00:00Z",
-    "updatedAt": "2024-12-24T08:00:00Z"
+    "updatedAt": "2024-12-24T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Amelia",
@@ -202,7 +221,8 @@
     "avatar": "amelia_hughes.jpg",
     "skills": ["Flutter", "Kotlin", "Swift", "UI Design"],
     "createdAt": "2024-12-25T08:00:00Z",
-    "updatedAt": "2024-12-25T08:00:00Z"
+    "updatedAt": "2024-12-25T08:00:00Z",
+    "password": "Qwe123"
   },
   {
     "firstName": "Nathan",
@@ -212,6 +232,7 @@
     "avatar": "nathan_foster.jpg",
     "skills": ["Leadership", "System Design", "Code Reviews", "Agile"],
     "createdAt": "2024-12-26T08:00:00Z",
-    "updatedAt": "2024-12-26T08:00:00Z"
+    "updatedAt": "2024-12-26T08:00:00Z",
+    "password": "Qwe123"
   }  
 ]

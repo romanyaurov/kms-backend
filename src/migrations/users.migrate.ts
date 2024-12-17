@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
+import bcrypt from 'bcrypt';
 import UserModel from '../models/user.model';
 
 const usersMigrate = async () => {
@@ -14,6 +15,11 @@ const usersMigrate = async () => {
 
   await UserModel.deleteMany({});
   console.log('Existing users cleared.');
+
+  for (const user of users) {
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(user.password, salt);
+  }
 
   const result = await UserModel.insertMany(users);
   console.log(`Migrated ${result.length} users to MongoDB`);

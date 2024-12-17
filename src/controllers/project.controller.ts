@@ -3,8 +3,11 @@ import ProjectService from '../services/project.service';
 
 class ProjectController {
   static async getAllProjects(req: Request, res: Response) {
+    const userId = req.user;
+    if (!userId || userId === undefined)
+      res.status(401).json({ error: true, message: 'Unauthorized' });
     try {
-      const projects = await ProjectService.getAllProjects();
+      const projects = await ProjectService.getAllProjects(userId as string);
       res.status(200).json(projects);
     } catch (error) {
       console.log(error);

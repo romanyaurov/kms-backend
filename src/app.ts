@@ -6,19 +6,24 @@ import usersRouter from './routes/users.routes';
 import morgan from 'morgan';
 import issuesRouter from './routes/issues.routes';
 import projectsRouter from './routes/projects.routes';
+import authRouter from './routes/auth.routes';
+import cookieParser from 'cookie-parser';
+import authenticate from './middlewares/auth.middleware';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 app.use(morgan('dev'));
 app.use('/static', express.static(__dirname + '/public'));
 app.use(cors());
 
 connectDB();
 
+app.use('/api', authRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/issues', issuesRouter);
-app.use('/api/projects', projectsRouter);
+app.use('/api/projects', authenticate, projectsRouter);
 
 export default app;

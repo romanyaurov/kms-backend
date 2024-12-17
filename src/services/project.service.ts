@@ -1,4 +1,4 @@
-import { Types } from 'mongoose';
+import mongoose, { Types } from 'mongoose';
 import ProjectModel, { IProject } from '../models/project.model';
 import generateNewProject from '../utils/generate-new-project.util';
 
@@ -9,8 +9,16 @@ export type CreateProjectDataType = {
 };
 
 class ProjectService {
-  static async getAllProjects(): Promise<IProject[]> {
-    const projects = await ProjectModel.find();
+  static async getAllProjects(userId: string): Promise<IProject[]> {
+    if (!Types.ObjectId.isValid(userId)) {
+      throw new Error('Invalid user ID format');
+    }
+
+    const participantId = new mongoose.Types.ObjectId(userId);
+
+    const projects = await ProjectModel.find({
+      participants: { $in: [participantId] },
+    });
 
     if (!projects) {
       throw new Error('Error fetching projects');

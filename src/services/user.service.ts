@@ -1,6 +1,6 @@
 import { Types } from 'mongoose';
 import UserModel, { IUser } from '../models/user.model';
-import generateNewUser from '../utils/generate-new-user.util';
+import generateUserAvatarString from '../utils/generate-user-avatar.util';
 
 export type AddUserDataType = {
   firstName: string;
@@ -34,9 +34,10 @@ class UserService {
   }
 
   static async addUser(userData: AddUserDataType): Promise<IUser> {
-    const fullUserData = generateNewUser(userData);
-
-    const newUser = new UserModel(fullUserData);
+    const newUser = new UserModel({
+      ...userData,
+      avatar: generateUserAvatarString(userData.firstName, userData.lastName),
+    });
     const savedUser = await newUser.save();
 
     if (!savedUser) {
