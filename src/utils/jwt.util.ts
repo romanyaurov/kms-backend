@@ -16,6 +16,8 @@ export const generateRefreshToken = (userId: string) => {
 };
 
 export const verifyAccessToken = (token: string): { userId: string } => {
+  console.log(accessSecret);
+  console.log(refreshSecret);
   return jwt.verify(token, accessSecret) as { userId: string };
 };
 
