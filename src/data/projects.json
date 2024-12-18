@@ -17,11 +17,11 @@
     ],
     "columns": [
       {
-        "title": "to_do",
+        "title": "to-do",
         "order": 1
       },
       {
-        "title": "in_progress",
+        "title": "in-progress",
         "order": 2
       },
       {
@@ -60,11 +60,11 @@
         "order": 1
       },
       {
-        "title": "to_do",
+        "title": "to-do",
         "order": 2
       },
       {
-        "title": "in_progress",
+        "title": "in-progress",
         "order": 3
       },
       {

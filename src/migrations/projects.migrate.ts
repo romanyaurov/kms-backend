@@ -30,7 +30,7 @@ const projectsMigrate = async () => {
       (participant) => users.find((user) => user.email === participant)?._id
     ),
     moderator: users.find((user) => user.email === project.moderator)?._id,
-    slug: slugify(project.name),
+    slug: slugify(project.name)
   }));
 
   await ProjectModel.deleteMany({});

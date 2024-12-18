@@ -18,11 +18,21 @@ export interface IProject extends Document {
 const ProjectSchema = new Schema<IProject>(
   {
     name: { type: String, required: true },
-    createdAt: { type: String, required: true },
-    updatedAt: { type: String, required: true },
+    createdAt: {
+      type: String,
+      required: true,
+      default: new Date().toISOString(),
+    },
+    updatedAt: {
+      type: String,
+      required: true,
+      default: new Date().toISOString(),
+    },
     moderator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-    participants: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }],
-    slug: { type: String, required: true },
+    participants: [
+      { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    ],
+    slug: { type: String, required: true, unique: true },
     columns: [
       {
         title: { type: String, required: true },
@@ -42,7 +52,7 @@ ProjectSchema.pre<IProject>('save', function (next) {
   this.updatedAt = new Date().toISOString();
 
   next();
-})
+});
 
 const ProjectModel = mongoose.model<IProject>('Project', ProjectSchema);
 

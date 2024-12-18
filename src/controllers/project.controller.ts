@@ -3,11 +3,9 @@ import ProjectService from '../services/project.service';
 
 class ProjectController {
   static async getAllProjects(req: Request, res: Response) {
-    const userId = req.user;
-    if (!userId || userId === undefined)
-      res.status(401).json({ error: true, message: 'Unauthorized' });
+    const userId = req.user as string;
     try {
-      const projects = await ProjectService.getAllProjects(userId as string);
+      const projects = await ProjectService.getAllProjects(userId);
       res.status(200).json(projects);
     } catch (error) {
       console.log(error);
@@ -16,9 +14,10 @@ class ProjectController {
   }
 
   static async getProject(req: Request, res: Response) {
+    const userId = req.user as string;
     try {
-      const { id } = req.params;
-      const project = await ProjectService.getProject(id);
+      const { slug } = req.params;
+      const project = await ProjectService.getProject(userId, slug);
       res.status(200).json(project);
     } catch (error) {
       console.log(error);
@@ -27,12 +26,15 @@ class ProjectController {
   }
 
   static async createProject(req: Request, res: Response) {
+    const userId = req.user as string;
     try {
-      const { name, moderator, columns } = req.body;
+      const { name, slug, participants, columns } = req.body;
       const newProject = await ProjectService.createProject({
         name,
-        moderator,
+        slug,
+        participants,
         columns,
+        moderator: userId,
       });
       res.status(201).json(newProject);
     } catch (error) {
@@ -42,9 +44,10 @@ class ProjectController {
   }
 
   static async deleteProject(req: Request, res: Response) {
+    const userId = req.user as string;
     try {
-      const { id } = req.params;
-      const message = await ProjectService.deleteProject(id);
+      const { slug } = req.params;
+      const message = await ProjectService.deleteProject(userId, slug);
       res.status(200).json({ error: false, message });
     } catch (error) {
       console.log(error);

@@ -1,19 +1,11 @@
-import mongoose, { Types } from 'mongoose';
+import mongoose, { mongo, Types } from 'mongoose';
 import ProjectModel, { IProject } from '../models/project.model';
-import generateNewProject from '../utils/generate-new-project.util';
-
-export type CreateProjectDataType = {
-  name: string;
-  moderator: string;
-  columns: string[];
-};
+import { CreateProjectDataType } from '../types/create-project-income-data.type';
+import UserModel from '../models/user.model';
+import { slugify } from 'transliteration';
 
 class ProjectService {
   static async getAllProjects(userId: string): Promise<IProject[]> {
-    if (!Types.ObjectId.isValid(userId)) {
-      throw new Error('Invalid user ID format');
-    }
-
     const participantId = new mongoose.Types.ObjectId(userId);
 
     const projects = await ProjectModel.find({
@@ -27,12 +19,13 @@ class ProjectService {
     return projects;
   }
 
-  static async getProject(projectId: string): Promise<IProject> {
-    if (!Types.ObjectId.isValid(projectId)) {
-      throw new Error('Invalid project ID format');
-    }
+  static async getProject(userId: string, slug: string): Promise<IProject> {
+    const participantId = new mongoose.Types.ObjectId(userId);
 
-    const project = await ProjectModel.findById(projectId);
+    const project = await ProjectModel.findOne({
+      slug,
+      participants: { $in: [participantId] },
+    });
 
     if (!project) throw new Error('Project not found');
 
@@ -42,9 +35,28 @@ class ProjectService {
   static async createProject(
     projectData: CreateProjectDataType
   ): Promise<IProject> {
-    const fullProjectData = generateNewProject(projectData);
+    const participants = projectData.participants
+      ? await Promise.all(
+          projectData.participants.map(async (participant) => {
+            const user = await UserModel.findOne({ email: participant });
+            return user?._id;
+          })
+        )
+      : [];
 
-    const newProject = new ProjectModel(fullProjectData);
+    const newProject = new ProjectModel({
+      ...projectData,
+      moderator: new mongoose.Types.ObjectId(projectData.moderator),
+      participants: [
+        new mongoose.Types.ObjectId(projectData.moderator),
+        ...participants,
+      ],
+      columns: projectData.columns.map((column, index) => ({
+        title: column,
+        order: index + 1,
+      })),
+    });
+
     const savedProject = await newProject.save();
 
     if (!savedProject) {
@@ -54,16 +66,16 @@ class ProjectService {
     return savedProject;
   }
 
-  static async deleteProject(projectId: string): Promise<string> {
-    if (!Types.ObjectId.isValid(projectId)) {
-      throw new Error('Invalid project ID format');
+  static async deleteProject(userId: string, slug: string): Promise<string> {
+    const project = await ProjectModel.findOne({ slug });
+
+    if (!project) throw new Error('Project not found');
+
+    if (!project.moderator.equals(userId)) {
+      throw new Error('Only moderator can delete project');
     }
 
-    const result = await ProjectModel.findByIdAndDelete(projectId);
-
-    if (!result) throw new Error('Project not found');
-
-    return `Project with ID ${projectId} has been deleted successfully.`;
+    return `Project with ID ${project._id} has been deleted successfully.`;
   }
 }
 
