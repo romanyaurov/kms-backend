@@ -19,11 +19,19 @@ const UserSchema: Schema = new Schema(
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     email: { type: String, required: true, unique: true },
-    post: { type: String, required: true },
+    post: { type: String },
     avatar: { type: String, required: true },
-    skills: { type: [String], required: true },
-    createdAt: { type: String, required: true },
-    updatedAt: { type: String, required: true },
+    skills: { type: [String] },
+    createdAt: {
+      type: String,
+      required: true,
+      default: new Date().toISOString(),
+    },
+    updatedAt: {
+      type: String,
+      required: true,
+      default: new Date().toISOString(),
+    },
     password: { type: String, required: true },
   },
   {

@@ -22,8 +22,8 @@ app.use(cors());
 connectDB();
 
 app.use('/api', authRouter);
-app.use('/api/users', usersRouter);
-app.use('/api/issues', issuesRouter);
+app.use('/api/users', authenticate, usersRouter);
+app.use('/api/issues', authenticate, issuesRouter);
 app.use('/api/projects', authenticate, projectsRouter);
 
 export default app;

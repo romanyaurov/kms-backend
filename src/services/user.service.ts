@@ -1,14 +1,8 @@
 import { Types } from 'mongoose';
+import bcryptjs from 'bcryptjs';
 import UserModel, { IUser } from '../models/user.model';
-import generateUserAvatarString from '../utils/generate-user-avatar.util';
-
-export type AddUserDataType = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  post: string;
-  skills: string[];
-};
+import { SignupIncomeDataType } from '../types/signup-income-data.type';
+import saveBase64AsJpg from '../utils/save-base64-as-jpg.util';
 
 class UserService {
   static async getAllUsers(): Promise<IUser[]> {
@@ -33,18 +27,27 @@ class UserService {
     return user;
   }
 
-  static async addUser(userData: AddUserDataType): Promise<IUser> {
+  static async addUser(userData: SignupIncomeDataType): Promise<string> {
+    const savedAvatar = userData.avatar
+      ? await saveBase64AsJpg(
+          userData.avatar,
+          userData.firstName,
+          userData.lastName
+        )
+      : 'default_avatar.jpg';
+
     const newUser = new UserModel({
       ...userData,
-      avatar: generateUserAvatarString(userData.firstName, userData.lastName),
+      avatar: savedAvatar,
     });
+
     const savedUser = await newUser.save();
 
     if (!savedUser) {
       throw new Error('Error adding user');
     }
 
-    return savedUser;
+    return 'Signup seccessful';
   }
 
   static async deleteUser(userId: string): Promise<string> {
