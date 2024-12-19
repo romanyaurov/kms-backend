@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import bcrypt from 'bcrypt';
+import bcryptjs from 'bcryptjs';
 import UserModel from '../models/user.model';
 
 const usersMigrate = async () => {
@@ -17,8 +17,8 @@ const usersMigrate = async () => {
   console.log('Existing users cleared.');
 
   for (const user of users) {
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(user.password, salt);
+    const salt = await bcryptjs.genSalt(10);
+    user.password = await bcryptjs.hash(user.password, salt);
   }
 
   const result = await UserModel.insertMany(users);

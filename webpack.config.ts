@@ -1,5 +1,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/server.ts',
@@ -29,6 +31,10 @@ module.exports = {
           to: path.resolve(__dirname, 'dist', 'public'),
         },
       ],
+    }),
+    new CleanWebpackPlugin(),
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^(kerberos|snappy|mongodb-client-encryption|@mongodb-js\/zstd|@aws-sdk\/credential-providers|gcp-metadata|socks|aws4)$/,
     }),
   ],
 };
