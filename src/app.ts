@@ -9,6 +9,7 @@ import projectsRouter from './routes/projects.routes';
 import authRouter from './routes/auth.routes';
 import cookieParser from 'cookie-parser';
 import authenticate from './middlewares/auth.middleware';
+import tasksRouter from './routes/tasks.routes';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ connectDB();
 app.use('/api', authRouter);
 app.use('/api/users', authenticate, usersRouter);
 app.use('/api/issues', authenticate, issuesRouter);
+app.use('/api/tasks', authenticate, tasksRouter);
 app.use('/api/projects', authenticate, projectsRouter);
 
 export default app;

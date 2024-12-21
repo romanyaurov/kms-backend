@@ -1,33 +1,55 @@
 import { Types } from 'mongoose';
-import bcryptjs from 'bcryptjs';
 import UserModel, { IUser } from '../models/user.model';
 import { SignupIncomeDataType } from '../types/signup-income-data.type';
 import saveBase64AsJpg from '../utils/save-base64-as-jpg.util';
+import { generateAccessToken, generateRefreshToken } from '../utils/jwt.util';
+import ProjectModel from '../models/project.model';
+import { UserDTO } from '../dtos/user.dto';
 
 class UserService {
-  static async getAllUsers(): Promise<IUser[]> {
-    const users = await UserModel.find();
+  static async getAllUsers(userId: string): Promise<UserDTO[]> {
+    const userObjectId = new Types.ObjectId(userId);
 
-    if (!users) {
-      throw new Error('Error fetching users');
+    const projects = await ProjectModel.find({
+      participants: { $in: [userObjectId] },
+    }).select('participants -_id');
+
+    if (!projects) {
+      throw new Error('Error fetching connected projects');
     }
 
-    return users;
+    const allParticipants: Types.ObjectId[] = projects.flatMap(
+      (project) => project.participants
+    );
+
+    const uniqueParticipantIds = Array.from(
+      new Set(allParticipants.map((id) => id.toString()))
+    )
+      .filter((id) => id !== userId)
+      .map((id) => new Types.ObjectId(id));
+
+    const uniqueUsers = await UserModel.find({
+      _id: { $in: uniqueParticipantIds },
+    });
+
+    if (!uniqueUsers) throw new Error('Error fetching users');
+
+    return uniqueUsers.map((user) => new UserDTO(user));
   }
 
-  static async getUser(userId: string): Promise<IUser> {
-    if (!Types.ObjectId.isValid(userId)) {
-      throw new Error('Invalid user ID format');
-    }
+  static async getUserInfo(userId: string): Promise<UserDTO> {
+    const userObjectId = new Types.ObjectId(userId);
 
-    const user = await UserModel.findById(userId);
+    const user = await UserModel.findById(userObjectId);
 
     if (!user) throw new Error('User not found');
 
-    return user;
+    return new UserDTO(user);
   }
 
-  static async addUser(userData: SignupIncomeDataType): Promise<string> {
+  static async addUser(
+    userData: SignupIncomeDataType
+  ): Promise<{ accessToken: string; refreshToken: string }> {
     const savedAvatar = userData.avatar
       ? await saveBase64AsJpg(
           userData.avatar,
@@ -36,30 +58,19 @@ class UserService {
         )
       : 'default_avatar.jpg';
 
-    const newUser = new UserModel({
+    const newUser = await new UserModel({
       ...userData,
       avatar: savedAvatar,
-    });
+    }).save();
 
-    const savedUser = await newUser.save();
-
-    if (!savedUser) {
+    if (!newUser) {
       throw new Error('Error adding user');
     }
 
-    return 'Signup seccessful';
-  }
+    const accessToken = generateAccessToken(newUser._id as string);
+    const refreshToken = generateRefreshToken(newUser._id as string);
 
-  static async deleteUser(userId: string): Promise<string> {
-    if (!Types.ObjectId.isValid(userId)) {
-      throw new Error('Invalid user ID format');
-    }
-
-    const result = await UserModel.findByIdAndDelete(userId);
-
-    if (!result) throw new Error('User not found');
-
-    return `User with ID ${userId} has been deleted successfully.`;
+    return { accessToken, refreshToken };
   }
 }
 

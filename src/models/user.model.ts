@@ -25,12 +25,12 @@ const UserSchema: Schema = new Schema(
     createdAt: {
       type: String,
       required: true,
-      default: new Date().toISOString(),
+      default: () => new Date().toISOString(),
     },
     updatedAt: {
       type: String,
       required: true,
-      default: new Date().toISOString(),
+      default: () => new Date().toISOString(),
     },
     password: { type: String, required: true },
   },

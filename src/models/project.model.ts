@@ -21,12 +21,12 @@ const ProjectSchema = new Schema<IProject>(
     createdAt: {
       type: String,
       required: true,
-      default: new Date().toISOString(),
+      default: () => new Date().toISOString(),
     },
     updatedAt: {
       type: String,
       required: true,
-      default: new Date().toISOString(),
+      default: () => new Date().toISOString(),
     },
     moderator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     participants: [

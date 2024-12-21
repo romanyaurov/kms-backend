@@ -7,7 +7,7 @@ class AuthController {
     const { firstName, lastName, email, post, skills, password, avatar } =
       req.body;
     try {
-      const message = await UserService.addUser({
+      const { accessToken, refreshToken } = await UserService.addUser({
         firstName,
         lastName,
         email,
@@ -16,7 +16,14 @@ class AuthController {
         skills,
         avatar,
       });
-      res.status(201).json({ error: false, message });
+
+      res.cookie('refreshToken', refreshToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'strict',
+      });
+
+      res.status(201).json({ accessToken });
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: true, message: (error as Error).message });

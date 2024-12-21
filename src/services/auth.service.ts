@@ -23,7 +23,14 @@ class AuthService {
     const accessToken = generateAccessToken(user.id);
     const refreshToken = generateRefreshToken(user.id);
 
-    await new TokenModel({ userId: user.id, refreshToken }).save();
+    const savedTokens = await new TokenModel({
+      userId: user.id,
+      refreshToken,
+    }).save();
+
+    if (!savedTokens) {
+      throw new Error('Error saving tokens');
+    }
 
     return { accessToken, refreshToken };
   }

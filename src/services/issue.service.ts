@@ -2,21 +2,8 @@ import { Types } from 'mongoose';
 import IssueModel, { IIssue } from '../models/issue.model';
 import generateNewIssue from '../utils/generate-new-issue.util';
 import moveIssue from '../utils/move-issue.util';
-
-export type AddIssueDataType = {
-  title: string;
-  description: string;
-  assignedTo: string[];
-  tasks: string[];
-  project: string;
-  column: number;
-};
-
-export type UpdateIssueDataType = {
-  issueId: string;
-  column: Types.ObjectId;
-  order: number;
-};
+import { CreateIssueIncomeDataType } from '../types/create-issue-income-data.type';
+import { MoveIssueIncomeDataType } from '../types/move-issue-income-data.type';
 
 class IssueService {
   static async getAllIssues(projectId: string): Promise<IIssue[]> {
@@ -43,7 +30,7 @@ class IssueService {
     return issue;
   }
 
-  static async addIssue(issueData: AddIssueDataType): Promise<IIssue> {
+  static async addIssue(issueData: CreateIssueIncomeDataType): Promise<IIssue> {
     const fullIssueData = await generateNewIssue(issueData);
 
     const newIssue = new IssueModel(fullIssueData);
@@ -54,19 +41,7 @@ class IssueService {
     return savedIssue;
   }
 
-  static async deleteIssue(issueId: string): Promise<string> {
-    if (!Types.ObjectId.isValid(issueId)) {
-      throw new Error('Invalid user ID format');
-    }
-
-    const result = await IssueModel.findByIdAndDelete(issueId);
-
-    if (!result) throw new Error('Issue not found');
-
-    return `Issue with ID ${issueId} has been deleted successfully.`;
-  }
-
-  static async updateIssue(issueData: UpdateIssueDataType): Promise<string> {
+  static async moveIssue(issueData: MoveIssueIncomeDataType): Promise<string> {
     if (!Types.ObjectId.isValid(issueData.issueId)) {
       throw new Error('Invalid user ID format');
     }
@@ -75,19 +50,21 @@ class IssueService {
       throw new Error('Invalid colmn ID format');
     }
 
-    const currIssue = await IssueModel.findById(issueData.issueId);
-    if (!currIssue) throw new Error('Issue not found');
+    const columnObjectId = new Types.ObjectId(issueData.column)
+
+    const targetIssue = await IssueModel.findById(issueData.issueId);
+    if (!targetIssue) throw new Error('Issue not found');
 
     const allIssues = await IssueModel.find({
-      _id: { $ne: currIssue._id },
-      project: currIssue.project,
-      column: { $in: [currIssue.column, issueData.column] },
+      _id: { $ne: targetIssue._id },
+      project: targetIssue.project,
+      column: { $in: [targetIssue.column, columnObjectId] },
     });
 
     const issuesToUpdate = moveIssue(
-      currIssue,
+      targetIssue,
       allIssues,
-      issueData.column,
+      columnObjectId,
       issueData.order
     );
 

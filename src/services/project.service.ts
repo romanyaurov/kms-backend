@@ -1,15 +1,14 @@
-import mongoose, { mongo, Types } from 'mongoose';
+import mongoose from 'mongoose';
 import ProjectModel, { IProject } from '../models/project.model';
 import { CreateProjectDataType } from '../types/create-project-income-data.type';
 import UserModel from '../models/user.model';
-import { slugify } from 'transliteration';
 
 class ProjectService {
   static async getAllProjects(userId: string): Promise<IProject[]> {
-    const participantId = new mongoose.Types.ObjectId(userId);
+    const userObjectId = new mongoose.Types.ObjectId(userId);
 
     const projects = await ProjectModel.find({
-      participants: { $in: [participantId] },
+      participants: { $in: [userObjectId] },
     });
 
     if (!projects) {
@@ -20,11 +19,15 @@ class ProjectService {
   }
 
   static async getProject(userId: string, slug: string): Promise<IProject> {
-    const participantId = new mongoose.Types.ObjectId(userId);
+    const userObjectId = new mongoose.Types.ObjectId(userId);
 
     const project = await ProjectModel.findOne({
       slug,
-      participants: { $in: [participantId] },
+      participants: { $in: [userObjectId] },
+    }).populate({
+      path: 'participants',
+      match: { _id: { $ne: userObjectId } },
+      select: '-password -createdAt -updatedAt',
     });
 
     if (!project) throw new Error('Project not found');

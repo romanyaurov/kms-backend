@@ -13,17 +13,6 @@ class IssueController {
     }
   }
 
-  static async getIssue(req: Request, res: Response) {
-    try {
-      const { issueId } = req.params;
-      const issue = await IssueService.getIssue(issueId);
-      res.status(200).json(issue);
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ error: true, message: (error as Error).message });
-    }
-  }
-
   static async createIssue(req: Request, res: Response) {
     try {
       const { title, description, assignedTo, tasks, project, column } =
@@ -43,22 +32,11 @@ class IssueController {
     }
   }
 
-  static async deleteIssue(req: Request, res: Response) {
-    try {
-      const { issueId } = req.params;
-      const message = await IssueService.deleteIssue(issueId);
-      res.status(200).json({ error: false, message });
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ error: true, message: (error as Error).message });
-    }
-  }
-
-  static async updateIssue(req: Request, res: Response) {
+  static async moveIssue(req: Request, res: Response) {
     try {
       const { issueId } = req.params;
       const { column, order } = req.body;
-      const message = await IssueService.updateIssue({ issueId, column, order });
+      const message = await IssueService.moveIssue({ issueId, column, order });
       res.status(200).json({ error: false, message });
     } catch (error) {
       console.log(error);
