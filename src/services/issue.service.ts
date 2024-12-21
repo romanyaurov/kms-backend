@@ -1,9 +1,9 @@
 import { Types } from 'mongoose';
 import IssueModel, { IIssue } from '../models/issue.model';
-import generateNewIssue from '../utils/generate-new-issue.util';
 import moveIssue from '../utils/move-issue.util';
 import { CreateIssueIncomeDataType } from '../types/create-issue-income-data.type';
 import { MoveIssueIncomeDataType } from '../types/move-issue-income-data.type';
+import ProjectModel from '../models/project.model';
 
 class IssueService {
   static async getAllIssues(projectId: string): Promise<IIssue[]> {
@@ -31,9 +31,8 @@ class IssueService {
   }
 
   static async addIssue(issueData: CreateIssueIncomeDataType): Promise<IIssue> {
-    const fullIssueData = await generateNewIssue(issueData);
+    const newIssue = new IssueModel(issueData);
 
-    const newIssue = new IssueModel(fullIssueData);
     const savedIssue = newIssue.save();
 
     if (!savedIssue) throw new Error('Error adding issue');
@@ -41,16 +40,18 @@ class IssueService {
     return savedIssue;
   }
 
-  static async moveIssue(issueData: MoveIssueIncomeDataType): Promise<string> {
+  static async moveIssue(
+    issueData: MoveIssueIncomeDataType & { issueId: string }
+  ): Promise<string> {
     if (!Types.ObjectId.isValid(issueData.issueId)) {
       throw new Error('Invalid user ID format');
     }
 
-    if (!Types.ObjectId.isValid(issueData.column)) {
+    if (!Types.ObjectId.isValid(issueData.targetColumn)) {
       throw new Error('Invalid colmn ID format');
     }
 
-    const columnObjectId = new Types.ObjectId(issueData.column)
+    const columnObjectId = new Types.ObjectId(issueData.targetColumn);
 
     const targetIssue = await IssueModel.findById(issueData.issueId);
     if (!targetIssue) throw new Error('Issue not found');
@@ -65,7 +66,7 @@ class IssueService {
       targetIssue,
       allIssues,
       columnObjectId,
-      issueData.order
+      issueData.targetOrder
     );
 
     const savePromises = issuesToUpdate.map((issue) => issue.save());

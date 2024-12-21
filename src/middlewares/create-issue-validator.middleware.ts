@@ -12,11 +12,13 @@ export const validateIssueCreation = async (
     const { title, description, project, column, deadline, assignedTo, tasks } =
       req.body as CreateIssueIncomeDataType;
 
+    // Проверка поля title
     if (!title || typeof title !== 'string') {
       res.status(400).json({ error: true, message: 'Invalid issue title' });
       return;
     }
 
+    // Проверка поля description
     if (!description || typeof description !== 'string') {
       res
         .status(400)
@@ -24,11 +26,13 @@ export const validateIssueCreation = async (
       return;
     }
 
+    // Проверка поля project
     if (!project || typeof project !== 'string') {
       res.status(400).json({ error: true, message: 'Invalid "project" field' });
       return;
     }
 
+    // Ищем проект по slug из поля project, от участником берём только email
     const findedProject = await ProjectModel.findOne({
       slug: project,
     }).populate<{ participants: Partial<IUser>[] }>({
@@ -36,6 +40,7 @@ export const validateIssueCreation = async (
       select: 'email',
     });
 
+    // Проверяем что проект найден
     if (!findedProject) {
       res
         .status(400)
@@ -43,6 +48,7 @@ export const validateIssueCreation = async (
       return;
     }
 
+    // Проверяем что в найденном проекте есть нужный нам столбец
     const columns = findedProject.columns.map((column) => column.title);
     if (!columns.includes(column)) {
       res.status(400).json({
@@ -54,6 +60,7 @@ export const validateIssueCreation = async (
       return;
     }
 
+    // Проверяем поле deadline
     if (deadline) {
       if (
         typeof deadline !== 'string' ||
@@ -66,6 +73,7 @@ export const validateIssueCreation = async (
       }
     }
 
+    // Проверяем поле с назначенными пользователями
     if (assignedTo) {
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (
@@ -95,6 +103,7 @@ export const validateIssueCreation = async (
       }
     }
 
+    // Проверяем поле tasks
     if (tasks) {
       if (
         !Array.isArray(tasks) ||

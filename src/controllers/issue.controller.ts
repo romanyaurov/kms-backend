@@ -15,7 +15,7 @@ class IssueController {
 
   static async createIssue(req: Request, res: Response) {
     try {
-      const { title, description, assignedTo, tasks, project, column } =
+      const { title, description, assignedTo, tasks, project, column, deadline, order } =
         req.body;
       const newIssue = await IssueService.addIssue({
         title,
@@ -35,8 +35,12 @@ class IssueController {
   static async moveIssue(req: Request, res: Response) {
     try {
       const { issueId } = req.params;
-      const { column, order } = req.body;
-      const message = await IssueService.moveIssue({ issueId, column, order });
+      const { targetColumn, targetOrder } = req.body;
+      const message = await IssueService.moveIssue({
+        issueId,
+        targetColumn,
+        targetOrder,
+      });
       res.status(200).json({ error: false, message });
     } catch (error) {
       console.log(error);
