@@ -1,17 +1,17 @@
 import mongoose, { Schema, Document, Types } from 'mongoose';
-
-export interface IColumn extends Document {
-  title: string;
-  order: number;
-}
+import { IUser } from './user.model';
 
 export interface IProject extends Document {
   name: string;
   createdAt: string;
   updatedAt: string;
-  moderator: Types.ObjectId;
-  participants: Types.ObjectId[];
-  columns: IColumn[];
+  moderator: Types.ObjectId | Partial<IUser>;
+  participants: Types.ObjectId[] | Partial<IUser>[];
+  columns: {
+    title: string;
+    slug: string;
+    order: number;
+  }[];
   slug: string;
 }
 
@@ -36,6 +36,7 @@ const ProjectSchema = new Schema<IProject>(
     columns: [
       {
         title: { type: String, required: true },
+        slug: { type: String, required: true },
         order: { type: Number, required: true },
       },
     ],

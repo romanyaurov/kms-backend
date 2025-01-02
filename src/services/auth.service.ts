@@ -1,9 +1,9 @@
+import { UserDTO } from '../dtos/user.dto';
 import TokenModel from '../models/token.model';
 import UserModel from '../models/user.model';
 import {
   generateAccessToken,
   generateRefreshToken,
-  verifyRefreshToken,
 } from '../utils/jwt.util';
 
 class AuthService {
@@ -13,7 +13,11 @@ class AuthService {
   }: {
     email: string;
     password: string;
-  }): Promise<{ accessToken: string; refreshToken: string }> {
+  }): Promise<{
+    user: UserDTO;
+    refreshToken: string;
+    accessToken: string;
+  }> {
     const user = await UserModel.findOne({ email });
 
     if (!user || !(await user.comparePassword(password))) {
@@ -32,24 +36,11 @@ class AuthService {
       throw new Error('Error saving tokens');
     }
 
-    return { accessToken, refreshToken };
-  }
-
-  static async refresh(
-    refreshToken: string
-  ): Promise<{ newAccessToken: string; newRefreshToken: string }> {
-    const payload = verifyRefreshToken(refreshToken);
-
-    const tokenEntry = await TokenModel.findOne({ refreshToken });
-    if (!tokenEntry) throw new Error('Invalid refresh token');
-
-    const newAccessToken = generateAccessToken(payload.userId);
-    const newRefreshToken = generateRefreshToken(payload.userId);
-
-    tokenEntry.refreshToken = newRefreshToken;
-    await tokenEntry.save();
-
-    return { newAccessToken, newRefreshToken };
+    return {
+      user: new UserDTO(user),
+      accessToken,
+      refreshToken,
+    };
   }
 
   static async logout(refreshToken: string): Promise<string> {

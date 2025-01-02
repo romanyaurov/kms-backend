@@ -1,4 +1,6 @@
 import mongoose, { Schema, Document, Types } from 'mongoose';
+import { IUser } from './user.model';
+import { UserDTO } from '../dtos/user.dto';
 
 export interface ITask extends Document {
   text: string;
@@ -11,12 +13,12 @@ export interface IIssue extends Document {
   title: string;
   createdAt: string;
   updatedAt: string;
-  deadline: string;
+  deadline?: string;
   description: string;
-  assignedTo: Types.ObjectId[];
-  tasks: ITask[];
+  assignedTo?: Types.ObjectId[] | Partial<IUser>[];
+  tasks?: ITask[] | Partial<ITask>[];
   project: Types.ObjectId;
-  column: Types.ObjectId;
+  column: string;
   order: number;
 }
 
@@ -55,7 +57,7 @@ const IssueSchema = new Schema<IIssue>(
       ],
     },
     project: { type: Schema.Types.ObjectId, ref: 'Project', required: true },
-    column: { type: Schema.Types.ObjectId, required: true },
+    column: { type: String, required: true },
     order: { type: Number, required: true },
   },
   {

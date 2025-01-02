@@ -3,19 +3,31 @@ import IssueModel, { IIssue } from '../models/issue.model';
 import moveIssue from '../utils/move-issue.util';
 import { CreateIssueIncomeDataType } from '../types/create-issue-income-data.type';
 import { MoveIssueIncomeDataType } from '../types/move-issue-income-data.type';
-import ProjectModel from '../models/project.model';
+import { IssueDTO } from '../dtos/issue.dto';
 
 class IssueService {
-  static async getAllIssues(projectId: string): Promise<IIssue[]> {
-    if (!Types.ObjectId.isValid(projectId)) {
-      throw new Error('Invalid project ID format');
-    }
+  static async getAllIssues(projectId: string): Promise<IssueDTO[]> {
+    const projectObjectId = new Types.ObjectId(projectId);
 
-    const issues = await IssueModel.find({ project: projectId });
+    const issues = await IssueModel.find({
+      project: projectObjectId,
+    }).populate<{
+      assignedTo: { _id: Types.ObjectId; email: string; avatar: string }[];
+      tasks: { _id: Types.ObjectId; text: string; isCompleted: boolean }[];
+    }>([
+      {
+        path: 'assignedTo',
+        select: 'email avatar',
+      },
+      {
+        path: 'tasks',
+        select: 'text isCompleted',
+      },
+    ]);
 
     if (!issues) throw new Error('Error fetching issues');
 
-    return issues;
+    return issues.map((issue) => new IssueDTO(issue));
   }
 
   static async getIssue(issueId: string): Promise<IIssue> {
@@ -43,32 +55,27 @@ class IssueService {
   static async moveIssue(
     issueData: MoveIssueIncomeDataType & { issueId: string }
   ): Promise<string> {
-    if (!Types.ObjectId.isValid(issueData.issueId)) {
-      throw new Error('Invalid user ID format');
-    }
 
-    if (!Types.ObjectId.isValid(issueData.targetColumn)) {
-      throw new Error('Invalid colmn ID format');
-    }
+    /* define target issue id & find issue object */
+    const issueObjectId = new Types.ObjectId(issueData.issueId);
+    const targetIssue = await IssueModel.findById(issueObjectId);
 
-    const columnObjectId = new Types.ObjectId(issueData.targetColumn);
-
-    const targetIssue = await IssueModel.findById(issueData.issueId);
-    if (!targetIssue) throw new Error('Issue not found');
-
+    /* find all issues assiciated with previous and new columns */
     const allIssues = await IssueModel.find({
-      _id: { $ne: targetIssue._id },
-      project: targetIssue.project,
-      column: { $in: [targetIssue.column, columnObjectId] },
+      _id: { $ne: targetIssue!._id }, // exclude target issue
+      project: targetIssue!.project,
+      column: { $in: [targetIssue!.column, issueData.targetColumn] },
     });
 
+    /* reorder issues in finded columns */
     const issuesToUpdate = moveIssue(
-      targetIssue,
+      targetIssue!,
       allIssues,
-      columnObjectId,
+      issueData.targetColumn,
       issueData.targetOrder
     );
 
+    /* save changes in database */
     const savePromises = issuesToUpdate.map((issue) => issue.save());
     const savedIssues = await Promise.all(savePromises);
 

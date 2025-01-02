@@ -9,7 +9,7 @@ TODO: валидировать пользователя
 (только пользователь назначенный на этот Issue может переключать статус подзадачи,
 либо администратор или модератор)
 */
-tasksRouter.patch('/:taskId/toggle', validateTaskToggle, TaskController.toggle); 
+// tasksRouter.put('/:taskId/toggle', validateTaskToggle, TaskController.toggle); 
 /* TODO эндпоинт добавления task */
 
 export default tasksRouter;

@@ -17,19 +17,19 @@
     ],
     "columns": [
       {
-        "title": "to-do",
+        "title": "To Do",
         "order": 1
       },
       {
-        "title": "in-progress",
+        "title": "In Progress",
         "order": 2
       },
       {
-        "title": "review",
+        "title": "Review",
         "order": 3
       },
       {
-        "title": "done",
+        "title": "Done",
         "order": 4
       }
     ]
@@ -56,23 +56,23 @@
     ],
     "columns": [
       {
-        "title": "backlog",
+        "title": "Backlog",
         "order": 1
       },
       {
-        "title": "to-do",
+        "title": "To Do",
         "order": 2
       },
       {
-        "title": "in-progress",
+        "title": "In Progress",
         "order": 3
       },
       {
-        "title": "test",
+        "title": "Test",
         "order": 4
       },
       {
-        "title": "done",
+        "title": "Done",
         "order": 5
       }
     ]

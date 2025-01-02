@@ -14,10 +14,9 @@ class ProjectController {
   }
 
   static async getProject(req: Request, res: Response) {
-    const userId = req.user as string;
+    const projectId = req.projectId as string;
     try {
-      const { slug } = req.params;
-      const project = await ProjectService.getProject(userId, slug);
+      const project = await ProjectService.getProject(projectId);
       res.status(200).json(project);
     } catch (error) {
       console.log(error);
@@ -43,17 +42,17 @@ class ProjectController {
     }
   }
 
-  static async deleteProject(req: Request, res: Response) {
-    const userId = req.user as string;
-    try {
-      const { slug } = req.params;
-      const message = await ProjectService.deleteProject(userId, slug);
-      res.status(200).json({ error: false, message });
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ error: true, message: (error as Error).message });
-    }
-  }
+  // static async deleteProject(req: Request, res: Response) {
+  //   const userId = req.user as string;
+  //   try {
+  //     const { slug } = req.params;
+  //     const message = await ProjectService.deleteProject(userId, slug);
+  //     res.status(200).json({ error: false, message });
+  //   } catch (error) {
+  //     console.log(error);
+  //     res.status(500).json({ error: true, message: (error as Error).message });
+  //   }
+  // }
 }
 
 export default ProjectController;

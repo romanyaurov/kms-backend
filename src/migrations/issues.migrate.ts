@@ -43,7 +43,7 @@ const issuesMigrate = async () => {
     project: projects.find((project) => project.name === issue.project)?._id,
     column: projects
       .find((project) => project.name === issue.project)
-      ?.columns.find((column) => column.title === issue.column)?._id,
+      ?.columns.find((column) => column.title === issue.column)?.slug,
   }));
 
   await IssueModel.deleteMany({});

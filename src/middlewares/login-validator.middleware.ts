@@ -9,6 +9,8 @@ export const validateLoginRequest = async (
   try {
     const { email, password } = req.body as LoginIncomeDataType;
 
+    console.log(req.body);
+
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!email || typeof email !== 'string' || !emailRegex.test(email)) {

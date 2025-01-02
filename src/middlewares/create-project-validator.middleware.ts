@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { slugify } from 'transliteration';
-import ProjectModel from '../models/project.model';
+import { v4 as uuidv4 } from 'uuid';
 import { CreateProjectIncomeDataType } from '../types/create-project-income-data.type';
 import UserModel from '../models/user.model';
 
@@ -18,17 +18,7 @@ export const validateProjectCreation = async (
       return;
     }
 
-    const slug = slugify(name);
-
-    const existingProject = await ProjectModel.findOne({ slug });
-
-    if (existingProject) {
-      res.status(409).json({
-        error: true,
-        message: 'A project with this name already exists',
-      });
-      return;
-    }
+    const slug = slugify(name) + '-' + uuidv4().slice(0, 8);
 
     if (
       !columns ||

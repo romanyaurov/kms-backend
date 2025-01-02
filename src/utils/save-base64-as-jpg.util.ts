@@ -8,8 +8,9 @@ async function saveBase64AsJpg(
   lastName: string
 ): Promise<string> {
   const base64Data = base64String.replace(/^data:image\/jpeg;base64,/, '');
-  
-  const fileName = [firstName, lastName].join('_').toLowerCase() + uuidv4().slice(0, 8);
+
+  const fileName =
+    [firstName, lastName].join('_').toLowerCase() + '-' + uuidv4().slice(0, 8);
 
   const outputFilePath = path.join(__dirname, 'public', `${fileName}.jpg`);
 

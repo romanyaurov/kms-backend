@@ -18,7 +18,14 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use('/static', express.static(__dirname + '/public'));
-app.use(cors());
+app.use(
+  cors({
+    origin: 'http://localhost:4200',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+);
 
 connectDB();
 

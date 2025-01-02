@@ -3,8 +3,8 @@ import IssueService from '../services/issue.service';
 
 class IssueController {
   static async getAllIssues(req: Request, res: Response) {
+    const projectId = req.projectId as string;
     try {
-      const { projectId } = req.params;
       const issues = await IssueService.getAllIssues(projectId);
       res.status(200).json(issues);
     } catch (error) {

@@ -13,6 +13,8 @@ export const validateIssueMoving = async (
     const { issueId } = req.params as { issueId: string };
     const { targetColumn } = req.body as MoveIssueIncomeDataType;
 
+    /* Validate Issue ID */
+
     if (!Types.ObjectId.isValid(issueId)) {
       res.status(400).json({ error: true, message: 'Invalid IssueID' });
       return;
@@ -26,9 +28,11 @@ export const validateIssueMoving = async (
       return;
     }
 
+    /* Find project contains that Issue & Validate target column slug */
+
     const targetProject = await ProjectModel.findById(targetIssue.project);
     const targetProjectColumns = targetProject!.columns.map(
-      (column) => column.title
+      (column) => column.slug
     );
 
     if (!targetProjectColumns.includes(targetColumn)) {

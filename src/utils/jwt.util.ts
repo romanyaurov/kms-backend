@@ -27,8 +27,17 @@ export const verifyAccessToken = (token: string): { userId: string } => {
 
   if (!accessSecret)
     throw new Error('ACCESS_TOKEN_SECRET is not defined in .env');
-
+  
   return jwt.verify(token, accessSecret) as { userId: string };
+
+  // try {
+  //   return jwt.verify(token, accessSecret) as { userId: string };
+  // } catch (error) {
+  //   // if (error instanceof TokenExpiredError) {
+  //   //   throw 'jwt expired'
+  //   // }
+  //   throw error;
+  // }
 };
 
 export const verifyRefreshToken = (token: string): { userId: string } => {

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { CreateIssueIncomeDataType } from '../types/create-issue-income-data.type';
 import ProjectModel from '../models/project.model';
-import UserModel, { IUser } from '../models/user.model';
+import { IUser } from '../models/user.model';
 import IssueModel from '../models/issue.model';
 
 export const transformIssueCreation = async (

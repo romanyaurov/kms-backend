@@ -3,6 +3,7 @@ import path from 'path';
 import UserModel from '../models/user.model';
 import ProjectModel from '../models/project.model';
 import { slugify } from 'transliteration';
+import { v4 as uuidv4 } from 'uuid';
 
 type ProjectType = {
   name: string;
@@ -30,7 +31,11 @@ const projectsMigrate = async () => {
       (participant) => users.find((user) => user.email === participant)?._id
     ),
     moderator: users.find((user) => user.email === project.moderator)?._id,
-    slug: slugify(project.name)
+    slug: slugify(project.name) + '-' + uuidv4().slice(0, 8),
+    columns: project.columns.map((column) => ({
+      ...column,
+      slug: slugify(column.title) + '-' + uuidv4().slice(0, 8),
+    })),
   }));
 
   await ProjectModel.deleteMany({});

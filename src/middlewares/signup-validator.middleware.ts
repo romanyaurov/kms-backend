@@ -8,7 +8,7 @@ export const validateSignupRequest = async (
 ) => {
   try {
     const { email, password, firstName, lastName, post, skills, avatar } =
-      req.body as SignupIncomeDataType;
+      req.body.user as SignupIncomeDataType;
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -61,9 +61,10 @@ export const validateSignupRequest = async (
       }
     }
 
-    const base64Regex = /^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/;
-
+    
     if (avatar) {
+      const base64Regex = /^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/;
+
       if (typeof avatar !== 'string' || !base64Regex.test(avatar)) {
         res
           .status(400)
