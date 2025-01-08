@@ -4,6 +4,7 @@ import { validateIssueCreation } from '../middlewares/create-issue-validator.mid
 import { validateIssueMoving } from '../middlewares/move-issue-validator.middleware';
 import { transformIssueCreation } from '../middlewares/create-issue-transformer.middleware';
 import { validateIssuesGetting } from '../middlewares/get-issues-validator.middleware';
+import { validateIssueDetails } from '../middlewares/issue-details-validator.middleware';
 
 const issuesRouter = Router();
 
@@ -12,6 +13,7 @@ issuesRouter.get(
   validateIssuesGetting,
   IssueController.getAllIssues
 );
+issuesRouter.get('/details', validateIssueDetails, IssueController.getIssue)
 // issuesRouter.post(
 //   '/',
 //   validateIssueCreation,

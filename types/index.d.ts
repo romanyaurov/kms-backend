@@ -5,6 +5,7 @@ declare global {
     interface Request {
       user?: string;
       projectId?: string;
+      issueId?: string;
     }
   }
 }

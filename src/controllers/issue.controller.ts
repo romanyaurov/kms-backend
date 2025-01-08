@@ -13,6 +13,17 @@ class IssueController {
     }
   }
 
+  static async getIssue(req: Request, res: Response) {
+    const issueId = req.issueId as string;
+    try {
+      const issue = await IssueService.getIssue(issueId);
+      res.status(200).json(issue);
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: true, message: (error as Error).message });
+    }
+  }
+
   static async createIssue(req: Request, res: Response) {
     try {
       const { title, description, assignedTo, tasks, project, column, deadline, order } =

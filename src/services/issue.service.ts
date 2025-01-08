@@ -30,16 +30,28 @@ class IssueService {
     return issues.map((issue) => new IssueDTO(issue));
   }
 
-  static async getIssue(issueId: string): Promise<IIssue> {
+  static async getIssue(issueId: string): Promise<IssueDTO> {
     if (!Types.ObjectId.isValid(issueId)) {
       throw new Error('Invalid user ID format');
     }
 
-    const issue = await IssueModel.findById(issueId);
+    const issue = await IssueModel.findById(issueId).populate<{
+      assignedTo: { _id: Types.ObjectId; email: string; avatar: string }[];
+      tasks: { _id: Types.ObjectId; text: string; isCompleted: boolean }[];
+    }>([
+      {
+        path: 'assignedTo',
+        select: 'email avatar',
+      },
+      {
+        path: 'tasks',
+        select: 'text isCompleted',
+      },
+    ]);
 
     if (!issue) throw new Error('Issue not found');
 
-    return issue;
+    return new IssueDTO(issue);
   }
 
   static async addIssue(issueData: CreateIssueIncomeDataType): Promise<IIssue> {
@@ -55,7 +67,6 @@ class IssueService {
   static async moveIssue(
     issueData: MoveIssueIncomeDataType & { issueId: string }
   ): Promise<string> {
-
     /* define target issue id & find issue object */
     const issueObjectId = new Types.ObjectId(issueData.issueId);
     const targetIssue = await IssueModel.findById(issueObjectId);
