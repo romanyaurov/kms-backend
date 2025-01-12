@@ -11,12 +11,18 @@ class ProjectService {
     const projects = await ProjectModel.find({
       participants: { $in: [userObjectId] },
     }).populate<{
-      moderator: { _id: Types.ObjectId; email: string; avatar: string };
+      moderator: {
+        _id: Types.ObjectId;
+        firstName: string;
+        lastName: string;
+        email: string;
+        avatar: string;
+      };
       participants: { _id: Types.ObjectId; email: string; avatar: string }[];
     }>([
       {
         path: 'moderator',
-        select: 'email avatar',
+        select: 'firstName lastName email avatar',
       },
       {
         path: 'participants',
@@ -35,12 +41,18 @@ class ProjectService {
     const projectObjectId = new mongoose.Types.ObjectId(projectId);
 
     const project = await ProjectModel.findById(projectObjectId).populate<{
-      moderator: { _id: Types.ObjectId; email: string; avatar: string };
+      moderator: {
+        _id: Types.ObjectId;
+        firstName: string;
+        lastName: string;
+        email: string;
+        avatar: string;
+      };
       participants: { _id: Types.ObjectId; email: string; avatar: string }[];
     }>([
       {
         path: 'moderator',
-        select: 'email avatar',
+        select: 'email firstName lastName avatar',
       },
       {
         path: 'participants',

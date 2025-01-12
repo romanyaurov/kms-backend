@@ -7,6 +7,8 @@ export class ProjectDTO {
   slug: string;
   moderator: {
     id: string;
+    firstName: string;
+    lastName: string;
     email: string;
     avatar: string;
   };
@@ -25,7 +27,13 @@ export class ProjectDTO {
 
   constructor(
     project: IProject & {
-      moderator: { _id: Types.ObjectId; email: string; avatar: string };
+      moderator: {
+        _id: Types.ObjectId;
+        firstName: string;
+        lastName: string;
+        email: string;
+        avatar: string;
+      };
       participants: { _id: Types.ObjectId; email: string; avatar: string }[];
       columns: { title: string; slug: string; order: number }[];
     }
@@ -37,6 +45,8 @@ export class ProjectDTO {
     this.updatedAt = project.updatedAt;
     this.moderator = {
       id: project.moderator._id.toString(),
+      firstName: project.moderator.firstName,
+      lastName: project.moderator.lastName,
       email: project.moderator.email,
       avatar: project.moderator.avatar,
     };

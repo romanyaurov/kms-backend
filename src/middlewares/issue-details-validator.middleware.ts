@@ -8,10 +8,10 @@ export const validateIssueDetails = async (
   next: NextFunction
 ) => {
   try {
-    const issueId = req.query.id as string;
+    const { issueId } = req.params;
     
     if (!issueId) {
-      res.status(400).json({ error: true, message: 'Need an Issue ID in query param ?id=' });
+      res.status(400).json({ error: true, message: 'Need an Issue ID' });
       return;
     }
 

@@ -14,6 +14,9 @@ export class IssueDTO {
   }[];
   assignedTo?: {
     id: string;
+    firstName: string;
+    lastName: string;
+    post: string;
     email: string;
     avatar: string;
   }[];
@@ -23,7 +26,14 @@ export class IssueDTO {
 
   constructor(
     issue: IIssue & {
-      assignedTo: { _id: Types.ObjectId; email: string; avatar: string }[];
+      assignedTo: {
+        _id: Types.ObjectId;
+        firstName: string;
+        lastName: string;
+        post: string;
+        email: string;
+        avatar: string;
+      }[];
       tasks: { _id: Types.ObjectId; text: string; isCompleted: boolean }[];
     }
   ) {
@@ -46,9 +56,12 @@ export class IssueDTO {
     if (issue.assignedTo) {
       this.assignedTo = issue.assignedTo.map((user) => ({
         id: user._id.toString(),
+        firstName: user.firstName,
+        lastName: user.lastName,
+        post: user.post,
         email: user.email,
         avatar: user.avatar,
-      }))
+      }));
     }
 
     if (issue.deadline) {

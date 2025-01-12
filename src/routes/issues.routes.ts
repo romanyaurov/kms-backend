@@ -13,7 +13,7 @@ issuesRouter.get(
   validateIssuesGetting,
   IssueController.getAllIssues
 );
-issuesRouter.get('/details', validateIssueDetails, IssueController.getIssue)
+issuesRouter.get('/details/:issueId', validateIssueDetails, IssueController.getIssue)
 // issuesRouter.post(
 //   '/',
 //   validateIssueCreation,

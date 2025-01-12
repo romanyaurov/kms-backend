@@ -12,12 +12,19 @@ class IssueService {
     const issues = await IssueModel.find({
       project: projectObjectId,
     }).populate<{
-      assignedTo: { _id: Types.ObjectId; email: string; avatar: string }[];
+      assignedTo: {
+        _id: Types.ObjectId;
+        firstName: string;
+        lastName: string;
+        post: string;
+        email: string;
+        avatar: string;
+      }[];
       tasks: { _id: Types.ObjectId; text: string; isCompleted: boolean }[];
     }>([
       {
         path: 'assignedTo',
-        select: 'email avatar',
+        select: 'firstName lastName post email avatar',
       },
       {
         path: 'tasks',
@@ -36,12 +43,19 @@ class IssueService {
     }
 
     const issue = await IssueModel.findById(issueId).populate<{
-      assignedTo: { _id: Types.ObjectId; email: string; avatar: string }[];
+      assignedTo: {
+        _id: Types.ObjectId;
+        firstName: string;
+        lastName: string;
+        post: string;
+        email: string;
+        avatar: string;
+      }[];
       tasks: { _id: Types.ObjectId; text: string; isCompleted: boolean }[];
     }>([
       {
         path: 'assignedTo',
-        select: 'email avatar',
+        select: 'firstName lastName post email avatar',
       },
       {
         path: 'tasks',
