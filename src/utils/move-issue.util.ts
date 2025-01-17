@@ -12,6 +12,7 @@ const moveIssue = (
   /* Overwrite Column & Order in Target Issue */
   issueObj.column = targetColumn;
   issueObj.order = targetOrder;
+  issueObj.updatedAt = new Date().toISOString();
 
   /* new column not equals prev column ? reorder issues in prev column : [] */
   let oldColIssues: IIssue[] = [];
