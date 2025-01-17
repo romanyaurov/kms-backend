@@ -4,7 +4,8 @@ import IssueModel from '../models/issue.model';
 class TaskService {
   static async toggle(taskId: string): Promise<string> {
     const targetIssue = await IssueModel.findOne({ 'tasks._id': taskId });
-    if (!targetIssue) throw new Error('Issue containing this task not found');
+    if (!targetIssue || !targetIssue.tasks)
+      throw new Error('Issue containing this task not found');
 
     const targetTask = targetIssue.tasks.find((task) =>
       (task._id as Types.ObjectId).equals(taskId)

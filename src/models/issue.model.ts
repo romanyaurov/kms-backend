@@ -68,8 +68,8 @@ const IssueSchema = new Schema<IIssue>(
 IssueSchema.pre<IIssue>('save', function (next) {
   if (this.isNew) {
     this.createdAt = new Date().toISOString();
+    this.updatedAt = new Date().toISOString();
   }
-  this.updatedAt = new Date().toISOString();
 
   next();
 });
