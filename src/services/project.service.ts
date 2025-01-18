@@ -1,4 +1,6 @@
 import mongoose, { Types } from 'mongoose';
+import { slugify } from 'transliteration';
+import { v4 as uuidv4 } from 'uuid';
 import ProjectModel, { IProject } from '../models/project.model';
 import { CreateProjectDataType } from '../types/create-project-income-data.type';
 import UserModel from '../models/user.model';
@@ -67,7 +69,7 @@ class ProjectService {
 
   static async createProject(
     projectData: CreateProjectDataType
-  ): Promise<IProject> {
+  ): Promise<string> {
     const participants = projectData.participants
       ? await Promise.all(
           projectData.participants.map(async (participant) => {
@@ -79,6 +81,7 @@ class ProjectService {
 
     const newProject = new ProjectModel({
       ...projectData,
+      slug: slugify(projectData.name) + '-' + uuidv4().slice(0, 8),
       moderator: new mongoose.Types.ObjectId(projectData.moderator),
       participants: [
         new mongoose.Types.ObjectId(projectData.moderator),
@@ -86,6 +89,7 @@ class ProjectService {
       ],
       columns: projectData.columns.map((column, index) => ({
         title: column,
+        slug: slugify(column) + '-' + uuidv4().slice(0, 8),
         order: index + 1,
       })),
     });
@@ -96,7 +100,7 @@ class ProjectService {
       throw new Error('Error creating project');
     }
 
-    return savedProject;
+    return savedProject.slug;
   }
 
   // static async deleteProject(userId: string, slug: string): Promise<string> {

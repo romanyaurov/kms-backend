@@ -4,6 +4,8 @@ import moveIssue from '../utils/move-issue.util';
 import { CreateIssueIncomeDataType } from '../types/create-issue-income-data.type';
 import { MoveIssueIncomeDataType } from '../types/move-issue-income-data.type';
 import { IssueDTO } from '../dtos/issue.dto';
+import ProjectModel from '../models/project.model';
+import { IUser } from '../models/user.model';
 
 class IssueService {
   static async getAllIssues(projectId: string): Promise<IssueDTO[]> {
@@ -68,14 +70,40 @@ class IssueService {
     return new IssueDTO(issue);
   }
 
-  static async addIssue(issueData: CreateIssueIncomeDataType): Promise<IIssue> {
-    const newIssue = new IssueModel(issueData);
+  static async addIssue(issueData: CreateIssueIncomeDataType): Promise<string> {
+    const targetProject = await ProjectModel.findOne({
+      slug: issueData.project,
+    }).populate<{ participants: { _id: string; email: string }[] }>({
+      path: 'participants',
+      select: 'email',
+    });
+
+    const newIssue = new IssueModel({
+      ...issueData,
+      project: targetProject!._id,
+      assignedTo: issueData.assignedTo?.map(
+        (userEmail) =>
+          targetProject!.participants.find(
+            (participant) => participant.email === userEmail
+          )!._id
+      ) || [],
+      tasks: issueData.tasks?.map((task) => ({
+        text: task,
+        isCompleted: false,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      })) || [],
+      order: (await IssueModel.countDocuments({
+        project: targetProject!._id,
+        column: issueData.column,
+      })) + 1,
+    });
 
     const savedIssue = newIssue.save();
 
     if (!savedIssue) throw new Error('Error adding issue');
 
-    return savedIssue;
+    return 'Issue created successfully';
   }
 
   static async moveIssue(

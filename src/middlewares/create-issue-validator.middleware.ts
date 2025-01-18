@@ -32,7 +32,7 @@ export const validateIssueCreation = async (
       return;
     }
 
-    // Ищем проект по slug из поля project, от участником берём только email
+    // Ищем проект по slug из поля project, от участников берём только email
     const findedProject = await ProjectModel.findOne({
       slug: project,
     }).populate<{ participants: Partial<IUser>[] }>({
@@ -49,8 +49,8 @@ export const validateIssueCreation = async (
     }
 
     // Проверяем что в найденном проекте есть нужный нам столбец
-    const columns = findedProject.columns.map((column) => column.title);
-    if (!columns.includes(column)) {
+    const findedColumn = findedProject.columns.find((item) => item.slug === column);
+    if (!findedColumn) {
       res.status(400).json({
         error: true,
         message: `

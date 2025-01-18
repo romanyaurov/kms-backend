@@ -8,7 +8,7 @@ export const validateSignupRequest = async (
 ) => {
   try {
     const { email, password, firstName, lastName, post, skills, avatar } =
-      req.body.user as SignupIncomeDataType;
+      req.body as SignupIncomeDataType;
 
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 

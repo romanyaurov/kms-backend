@@ -49,7 +49,11 @@ class UserService {
 
   static async addUser(
     userData: SignupIncomeDataType
-  ): Promise<{ accessToken: string; refreshToken: string; userAvatar: string; }> {
+  ): Promise<{
+    user: UserDTO;
+    refreshToken: string;
+    accessToken: string;
+  }> {
     const savedAvatar = userData.avatar
       ? await saveBase64AsJpg(
           userData.avatar,
@@ -69,9 +73,22 @@ class UserService {
 
     const accessToken = generateAccessToken(newUser._id as string);
     const refreshToken = generateRefreshToken(newUser._id as string);
-    const userAvatar = newUser.avatar;
 
-    return { accessToken, refreshToken, userAvatar };
+    return {
+      user: new UserDTO(newUser),
+      accessToken,
+      refreshToken,
+    };
+  }
+
+  static async checkUserEmail(email: string): Promise<{status: number, message: string}> {
+    const findedUser = await UserModel.findOne({ email });
+
+    if (!findedUser) {
+      return { status: 404, message: `User ${email} not found` }
+    }
+
+    return { status: 200, message: 'Ok' }
   }
 }
 

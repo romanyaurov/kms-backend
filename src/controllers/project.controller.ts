@@ -27,15 +27,14 @@ class ProjectController {
   static async createProject(req: Request, res: Response) {
     const userId = req.user as string;
     try {
-      const { name, slug, participants, columns } = req.body;
-      const newProject = await ProjectService.createProject({
+      const { name, participants, columns } = req.body;
+      const message = await ProjectService.createProject({
         name,
-        slug,
         participants,
         columns,
         moderator: userId,
       });
-      res.status(201).json(newProject);
+      res.status(201).json({ error: false, message });
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: true, message: (error as Error).message });

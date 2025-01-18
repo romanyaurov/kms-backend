@@ -1,6 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { slugify } from 'transliteration';
-import { v4 as uuidv4 } from 'uuid';
+
 import { CreateProjectIncomeDataType } from '../types/create-project-income-data.type';
 import UserModel from '../models/user.model';
 
@@ -17,8 +16,6 @@ export const validateProjectCreation = async (
       res.status(400).json({ error: true, message: 'Invalid project name' });
       return;
     }
-
-    const slug = slugify(name) + '-' + uuidv4().slice(0, 8);
 
     if (
       !columns ||
@@ -76,8 +73,6 @@ export const validateProjectCreation = async (
         return;
       }
     }
-
-    req.body.slug = slug;
 
     next();
   } catch (error) {

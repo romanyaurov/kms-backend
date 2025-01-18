@@ -10,23 +10,17 @@ export const transformIssueCreation = async (
   next: NextFunction
 ) => {
   try {
-    const { project, column, assignedTo, tasks } =
+    const { project, assignedTo, tasks } =
       req.body as CreateIssueIncomeDataType;
 
-    const targetProject = await ProjectModel.findOne({
-      slug: project,
-    }).populate<{ participants: Partial<IUser>[] }>({
-      path: 'participants',
-      select: 'email',
-    });
+    const targetProject = await ProjectModel.findOne({  slug: project })
+      .populate<{ participants: Partial<IUser>[] }>({
+        path: 'participants',
+        select: 'email',
+      });
 
     // Меняем slug на ObjectId
     req.body.project = targetProject!._id;
-
-    // Меняем column на ObjectId
-    req.body.column = targetProject!.columns.find(
-      (targetColumn) => targetColumn.title === column
-    )!._id;
 
     // Меняем email'ы пользователей на их ObjectId
     req.body.assignedTo =

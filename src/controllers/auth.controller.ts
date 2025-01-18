@@ -16,18 +16,23 @@ class AuthController {
 
   static async register(req: Request, res: Response) {
     const { firstName, lastName, email, post, skills, password, avatar } =
-      req.body.user;
+      req.body;
     try {
-      const { accessToken, refreshToken, userAvatar } =
-        await UserService.addUser({
-          firstName,
-          lastName,
-          email,
-          password,
-          post,
-          skills,
-          avatar,
-        });
+      const { user, accessToken, refreshToken } = await UserService.addUser({
+        firstName,
+        lastName,
+        email,
+        password,
+        post,
+        skills,
+        avatar,
+      });
+
+      res.cookie('accessToken', accessToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'strict',
+      });
 
       res.cookie('refreshToken', refreshToken, {
         httpOnly: true,
@@ -35,15 +40,7 @@ class AuthController {
         sameSite: 'strict',
       });
 
-      res.status(201).json({
-        user: {
-          firstName,
-          lastName,
-          email,
-          avatar: userAvatar,
-        },
-        accessToken,
-      });
+      res.status(200).json({ user });
     } catch (error) {
       console.log(error);
       res.status(500).json({ error: true, message: (error as Error).message });

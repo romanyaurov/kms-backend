@@ -14,15 +14,14 @@ issuesRouter.get(
   IssueController.getAllIssues
 );
 issuesRouter.get('/details/:issueId', validateIssueDetails, IssueController.getIssue)
-// issuesRouter.post(
-//   '/',
-//   validateIssueCreation,
-//   transformIssueCreation,
-//   IssueController.createIssue
-// );
+issuesRouter.post(
+  '/',
+  validateIssueCreation,
+  // transformIssueCreation,
+  IssueController.createIssue
+);
 issuesRouter.put('/:issueId', validateIssueMoving, IssueController.moveIssue);
 /* TODO добавить эндпоинт получения конкретного Issue */
-/* TODO Добавить эндпоинт изменения конкретного Issue */
 /* TODO Добавить эндпоинт удаления Issue (не забыть менять order у остальных issue в этом столбце) */
 
 export default issuesRouter;

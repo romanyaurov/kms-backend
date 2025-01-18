@@ -5,6 +5,5 @@ export type CreateProjectIncomeDataType = {
 };
 
 export type CreateProjectDataType = CreateProjectIncomeDataType & {
-  slug: string;
   moderator: string;
 };

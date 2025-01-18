@@ -23,6 +23,17 @@ class UserController {
       res.status(500).json({ error: true, message: (error as Error).message });
     }
   }
+
+  static async checkUser(req: Request, res: Response) {
+    const { email } = req.body as { email: string };
+    try {
+      const { status, message } = await UserService.checkUserEmail(email);
+      res.status(status).json({ error: !!(status !== 200), message })
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ error: true, message: (error as Error).message })
+    }
+  }
 }
 
 export default UserController;

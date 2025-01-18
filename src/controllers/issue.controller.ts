@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import IssueService from '../services/issue.service';
+import { CreateIssueIncomeDataType } from '../types/create-issue-income-data.type';
 
 class IssueController {
   static async getAllIssues(req: Request, res: Response) {
@@ -26,16 +27,7 @@ class IssueController {
 
   static async createIssue(req: Request, res: Response) {
     try {
-      const { title, description, assignedTo, tasks, project, column, deadline, order } =
-        req.body;
-      const newIssue = await IssueService.addIssue({
-        title,
-        description,
-        assignedTo,
-        tasks,
-        project,
-        column,
-      });
+      const newIssue = await IssueService.addIssue(req.body as CreateIssueIncomeDataType);
       res.status(201).json(newIssue);
     } catch (error) {
       console.log(error);
