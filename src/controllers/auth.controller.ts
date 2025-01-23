@@ -30,14 +30,18 @@ class AuthController {
 
       res.cookie('accessToken', accessToken, {
         httpOnly: true,
-        secure: true,
-        sameSite: 'strict',
+        // secure: true,
+        secure: false,
+        // sameSite: 'strict',
+        sameSite: 'lax',
       });
 
       res.cookie('refreshToken', refreshToken, {
         httpOnly: true,
-        secure: true,
-        sameSite: 'strict',
+        // secure: true,
+        secure: false,
+        // sameSite: 'strict',
+        sameSite: 'lax',
       });
 
       res.status(200).json({ user });
@@ -58,14 +62,18 @@ class AuthController {
 
       res.cookie('accessToken', accessToken, {
         httpOnly: true,
-        secure: true,
-        sameSite: 'strict',
+        // secure: true,
+        secure: false,
+        // sameSite: 'strict',
+        sameSite: 'lax',
       });
 
       res.cookie('refreshToken', refreshToken, {
         httpOnly: true,
-        secure: true,
-        sameSite: 'strict',
+        // secure: true,
+        secure: false,
+        // sameSite: 'strict',
+        sameSite: 'lax',
       });
 
       res.status(200).json({ user });
