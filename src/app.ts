@@ -20,7 +20,7 @@ app.use(morgan('dev'));
 app.use('/static', express.static(__dirname + '/public'));
 app.use(
   cors({
-    origin: 'http://localhost:4200',
+    origin: process.env.CORS_ORIGIN,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
